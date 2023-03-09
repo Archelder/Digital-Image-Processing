@@ -73,9 +73,36 @@ b) Sketch the image for $k=4$.
 
 **Answer:**
 
+a) An image could be described by $f(x,y) = i(x,y)\ r(x,y)$, where $i(x,y)$ denotes illumination components, $r(x,y)$ denotes reflectance components. Given that:
+$$
+\begin{aligned}
+i(x,y) &= 255e^{-[(x-x_0)^2+(y-y_0)^2]}\\
+r(x,y) &= 1.0
+\end{aligned}
+$$
 
+$$
+\begin{aligned}
+\Rightarrow f(x,y) &= 255e^{-[(x-x_0)^2+(y-y_0)^2]} \times 1.0 \\
+f(x,y) &= 255e^{-[(x-x_0)^2+(y-y_0)^2]}\qquad (x,y\in N,\ N = \{ 0,1,2 \dots \})
+\end{aligned}
+$$
 
+Obviously, the maximum and minimum value of $f(x,y)$ is 255 and 0. Suppose $f(x,y)$ digitized with $k$ bits of intensity resolution, abrupt change  in intensity is $\Delta I$. 
+$$
+\Delta I = \dfrac{255+1}{2^k}
+$$
+Assuming $\Delta I = 8$,
+$$
+\begin{aligned}
+\dfrac{255+1}{2^k} &= 8\\
+               2^k &= 32\\
+                 k &= 5
+\end{aligned}
+$$
+As a result, visible false contour will be caused when $k \le 5$.
 
+b)
 
 ***
 
