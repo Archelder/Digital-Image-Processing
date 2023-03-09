@@ -16,7 +16,7 @@
 
 (a) $\dfrac{2048\ dots}{2\times50\ mm}=20.48\ lp/mm $
 
-(b) mamashangde
+(b) $\sqrt{\dfrac{2048\times2048\ dots}{2\ inches\times2\ inches}}=1024\ dpi\ (dots\ per \ inch)$
 
 ***
 
