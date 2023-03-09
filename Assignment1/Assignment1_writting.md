@@ -112,9 +112,11 @@ b)
 
 **Answer:**
 
+(a) They are not 4-adjacent since there is no 4-path.
 
+(b) They are 8-adjacent since there is a 8-path.
 
-
+(c) They are 8-adjacent since there is a m-path.
 
 ***
 
