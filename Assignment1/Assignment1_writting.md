@@ -15,11 +15,19 @@
 **Answer:**
 
 (a) 20.48  lp/mm. 
-$$
-5\ cm=50\ mm \\
-\dfrac{1}{2}\sqrt{\dfrac{2048\times2048\ dots}{50\ mm\times50\ mm}}=20.48\ lp/mm
-$$
 
+Line width $w$:  
+$$
+w = \dfrac{5\ cm}{2048\ dots} = \dfrac{50\ mm}{2048\ dots}
+$$
+The resolution $R$:
+$$
+\begin{aligned}
+R &= \dfrac{1}{2w}\\
+  &= \dfrac{1}{2}\times\dfrac{2048\ dots}{50\ mm}\\
+  &= 20.48\ lp/mm
+\end{aligned}
+$$
 
 (b) 1024 dpi.
 $$
@@ -30,22 +38,21 @@ $$
 
 **Ex.2** A CCD camera chip of dimensions $14\times14$ mm, and having $2048\times2048$ elements, is focused on a square, flat area, located 0.5 m away. How many line pairs per mm will this camera be able to resolve? The camera is equipped with a 35-mm lens. (Hint: Model the imaging process as in Fig. 2.3, with the focal length of the camera lens substituting for the focal length of the eye.)
 
-**Answer:**
+**Answer:** 5.12 lp/mm
 
 Suppose $H$ is real height of the subject, according to geometry:
 $$
 \dfrac{H}{0.5\ m}=\dfrac{14\ mm}{35\ mm}\Rightarrow H=0.2\ m
 $$
-Pixel width: $w_p=\dfrac{14\ mm}{2048\ dots}$
-Suppose $w_l$ is line width, according to geometry:
+Using 2048 elements (dots) for capturing one line, the line width $w$ shall be: 
 $$
-\dfrac{w_p}{w_l}=\dfrac{14\ mm}{0.2\ m}
+w = \dfrac{0.2\ m}{2048\ dots} = \dfrac{200\ mm}{2048\ dots}
 $$
-Spatial resolution $R$:
+The resolution $R$:
 $$
 \begin{aligned}
-R &= \dfrac{1}{2w_l}\\
-  &= \dfrac{1}{2}\times\dfrac{2048\ dots}{0.2\ m}\\
+R &= \dfrac{1}{2w}\\
+  &= \dfrac{1}{2}\times\dfrac{2048\ dots}{200\ m}\\
   &= 5.12\ lp/mm
 \end{aligned}
 $$
