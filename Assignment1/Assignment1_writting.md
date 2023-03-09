@@ -16,7 +16,7 @@
 
 (a) $\dfrac{2048\ dots}{2\times50\ mm}=20.48\ lp/mm $
 
-(b)
+(b) mamashangde
 
 ***
 
