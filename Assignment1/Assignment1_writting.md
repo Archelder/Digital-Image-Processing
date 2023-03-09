@@ -14,7 +14,8 @@
 
 **Answer:**
 
-(a) $\dfrac{2048\ dots}{2\times50\ mm}=20.48\ lp/mm $
+(a) $5\ cm=50\ mm$
+	$\dfrac{1}{2}\sqrt{\dfrac{2048\times2048\ dots}{50\ mm\times50\ mm}}=20.48\ lp/mm $
 
 (b) $\sqrt{\dfrac{2048\times2048\ dots}{2\ inches\times2\ inches}}=1024\ dpi\ (dots\ per \ inch)$
 
