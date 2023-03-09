@@ -32,8 +32,23 @@ $$
 
 **Answer:**
 
-
-
+Suppose $H$ is real height of the subject, according to geometry:
+$$
+\dfrac{H}{0.5\ m}=\dfrac{14\ mm}{35\ mm}\Rightarrow H=0.2\ m
+$$
+Pixel width: $w_p=\dfrac{14\ mm}{2048\ dots}$
+Suppose $w_l$ is line width, according to geometry:
+$$
+\dfrac{w_p}{w_l}=\dfrac{14\ mm}{0.2\ m}
+$$
+Spatial resolution $R$:
+$$
+\begin{aligned}
+R &= \dfrac{1}{2w_l}\\
+  &= \dfrac{1}{2}\times\dfrac{2048\ dots}{0.2\ m}\\
+  &= 5.12\ lp/mm
+\end{aligned}
+$$
 
 
 ***
