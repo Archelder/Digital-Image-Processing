@@ -1,6 +1,5 @@
 import cv2
 import matplotlib.pyplot as plot
-import numpy as np
 
 shaded_img = cv2.imread(
     'images/Fig0229(a)(tungsten_filament_shaded).png',
