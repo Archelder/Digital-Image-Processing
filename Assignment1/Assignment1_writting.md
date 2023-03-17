@@ -216,7 +216,7 @@ where $(x', y')$ are the are the transformed coordinates, $(x, y)$ are the origi
 
 ***
 
-**Example 2.5**  For a noisy image which contains Gaussian noise with stand deviation $\sigma = 64$ gray levels and mean $\mu = 0$, observing noise reduction effects by  adding (averaging) *k* noisy images, and *k* takes 5, 10, 20, 50, and 100 respectively. 
+**Example 2.5**  For a noisy image which contains Gaussian noise with stand deviation $\sigma = 64$ gray levels and mean $\mu = 0$, observing noise reduction effects by adding (averaging) *k* noisy images, and *k* takes 5, 10, 20, 50, and 100 respectively. 
 
 <div align=center><img src="./images/Fig0226(galaxy_pair_original).png" alt="galaxy_pair_original" style="zoom:30%;" /></div>
 
@@ -224,7 +224,84 @@ where $(x', y')$ are the are the transformed coordinates, $(x, y)$ are the origi
 
 (*followed by **Matlab live Scripts** or **Jupyter Scripts** and running results*)
 
+<center>Jupyter Scripts</center>
 
+Import Dependencies.
+
+
+```python
+import cv2
+import matplotlib.pyplot as plot
+import numpy as np
+```
+
+Define function *gauss_noise()* to generate a corresponding Gaussian noise.
+
+
+```python
+def gauss_noise(mean, stand_deviation, shape):
+    noise = np.random.normal(mean, stand_deviation, shape)
+    return noise
+```
+
+Define function *noisy_image_average()* to generate an averaging image.
+
+
+```python
+def noisy_image_average(mean, stand_deviation, img, k):
+    g = np.zeros(img.shape)
+    for i in range(k):
+        g += gauss_noise(mean, stand_deviation, img.shape)
+        g /= k
+    averaging_img = img + g
+    return averaging_img
+```
+
+Load the original image without noise.
+
+
+```python
+original_img = cv2.imread('../images/Fig0226(galaxy_pair_original).png', flags=0)
+```
+
+Generate Gaussian noise and add it to the original image.
+
+
+```python
+Gauss_Noise = gauss_noise(0, 64, original_img.shape)
+noisy_img = original_img + Gauss_Noise
+```
+
+Generate averaging image for k = 5, 10, 20, 50 and 100, respectively.
+
+
+```python
+averaging_img_5 = noisy_image_average(0, 64, original_img, 5)
+averaging_img_10 = noisy_image_average(0, 64, original_img, 10)
+averaging_img_20 = noisy_image_average(0, 64, original_img, 20)
+averaging_img_50 = noisy_image_average(0, 64, original_img, 50)
+averaging_img_100 = noisy_image_average(0, 64, original_img, 100)
+```
+
+Display the results.
+
+
+```python
+plot.figure(figsize=(8, 8))
+plot.subplot(332), plot.imshow(original_img, cmap='gray'), plot.title('original image'), plot.axis('off')
+plot.subplot(334), plot.imshow(noisy_img, cmap='gray'), plot.title('noisy image'), plot.axis('off')
+plot.subplot(335), plot.imshow(averaging_img_5, cmap='gray'), plot.title('averaging image (k=5)'), plot.axis('off')
+plot.subplot(336), plot.imshow(averaging_img_10, cmap='gray'), plot.title('averaging image (k=10)'), plot.axis('off')
+plot.subplot(337), plot.imshow(averaging_img_20, cmap='gray'), plot.title('averaging image (k=20)'), plot.axis('off')
+plot.subplot(338), plot.imshow(averaging_img_50, cmap='gray'), plot.title('averaging image (k=50)'), plot.axis('off')
+plot.subplot(339), plot.imshow(averaging_img_100, cmap='gray'), plot.title('averaging image (k=100)'), plot.axis('off')
+plot.tight_layout()
+plot.show()
+```
+
+<center>Runnning Results</center>
+
+![Result Example 2.5](./images/Result Example 2.5.png)
 
 ***
 
