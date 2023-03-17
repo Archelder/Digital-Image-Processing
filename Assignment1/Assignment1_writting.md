@@ -124,7 +124,7 @@ b)
 
 **Answer:**
 
-This is a line of text for test.
+
 
 
 
