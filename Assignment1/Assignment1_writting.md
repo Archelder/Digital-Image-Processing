@@ -276,6 +276,93 @@ The left image is the original image, and the right one is the shading pattern o
 
 (*followed by **Matlab live Scripts** or **Jupyter Scripts** and running results*)
 
+<center> Jupyter Scripts </center>
+
+**1.**
+
+Import Dependencies.
+
+
+```python
+import cv2
+import matplotlib.pyplot as plot
+```
+
+Load the shaded image and the shading pattern.
+
+
+```python
+shaded_img = cv2.imread(
+    'images/Fig0229(a)(tungsten_filament_shaded).png',
+    flags=0)
+shading_pattern = cv2.imread(
+    'images/Fig0229(b)(tungsten_sensor_shading).png',
+    flags=0)
+```
+
+Perform multiplication and division for images by using *cv2.multiply()* and *cv2.divide()*.
+
+
+```python
+product_img = cv2.multiply(shaded_img, shading_pattern, scale=256)
+quotient_img = cv2.divide(shaded_img, shading_pattern, scale=256)
+```
+
+Display the results.
+
+
+```python
+plot.subplot(132), plot.imshow(shaded_img, cmap='gray'), plot.title('shaded_img'), plot.axis('off')
+plot.subplot(131), plot.imshow(product_img, cmap='gray'), plot.title('product_img'), plot.axis('off')
+plot.subplot(133), plot.imshow(quotient_img, cmap='gray'), plot.title('quotient_img'), plot.axis('off')
+plot.show()
+
+```
+
+![png](images/Result Example 2.7.1.png)
+
+
+
+**2.**
+
+Import dependencies.
+
+
+```python
+import cv2
+import matplotlib.pyplot as plot
+```
+
+Load the original image and mask image.
+
+
+```python
+original_img = cv2.imread('images/Fig0230(a)(dental_xray).png', flags=0)
+mask_img = cv2.imread('images/Fig0230(b)(dental_xray_mask).png', flags=0)
+```
+
+Perform the logic and operation to extract the region of interest (ROI) by function *cv2.bitwise_and()*
+
+
+```python
+ROI_img = cv2.bitwise_and(original_img, mask_img)
+```
+
+Display the results.
+
+
+```python
+plot.subplot(131), plot.imshow(original_img, cmap='gray'), plot.title('original_img'), plot.axis('off')
+plot.subplot(132), plot.imshow(mask_img, cmap='gray'), plot.title('mask_img'), plot.axis('off')
+plot.subplot(133), plot.imshow(ROI_img, cmap='gray'), plot.title('ROI_img'), plot.axis('off')
+plot.show()
+```
+
+
+​    
+![png](images/Result Example 2.7.2.png)
+​    
+
 
 
 ***
