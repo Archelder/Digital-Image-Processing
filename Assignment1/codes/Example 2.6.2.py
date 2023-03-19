@@ -18,4 +18,5 @@ plot.subplot(221), plot.imshow(mask_img, cmap='gray'), plot.title('make image'),
 plot.subplot(222), plot.imshow(live_img, cmap='gray'), plot.title('live image'), plot.axis('off')
 plot.subplot(223), plot.imshow(diff_img, cmap='gray'), plot.title('differences image'), plot.axis('off')
 plot.subplot(224), plot.imshow(enhenced_img, cmap='gray'), plot.title('enhenced image'), plot.axis('off')
+plot.savefig('../images/Results Example 2.6.2.png')
 plot.show()
