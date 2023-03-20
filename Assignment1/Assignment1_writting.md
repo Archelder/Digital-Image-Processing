@@ -142,9 +142,9 @@ You just need to give one possible path for each type of path, and sketch one pa
 
 **Answer:**
 
-(a) When $V=\{0,1,2\}$, the lengths of the shortest the shortest 4-, 8-, and m-path between *p* and *q* is 8, 4 and 6, respectively.
+(a) When $V=\{0,1,2\}$, there is no 4-, 8- and m-path between p and q, since the intensity of p $3 \notin V$.
 
-(b) When $V=\{2,3,4\}$, the lengths of the shortest the shortest 4-, 8-, and m-path between *p* and *q* is 8, 4 and 6, respectively.
+(b) When $V=\{2,3,4\}$, the lengths of the shortest the shortest 4-, 8-, and m-path between *p* and *q* is 8, 4 and 5, respectively.
 
 
 
