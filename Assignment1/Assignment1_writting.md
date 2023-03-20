@@ -180,9 +180,24 @@ You just need to give one possible path for each type of path, and sketch one pa
 
 **Answer:**
 
+As
+$$
+\begin{aligned}
+r(x,y,u,v) &= e^{-j2 \pi (\frac{ux}{M}+\frac{vy}{N})}\\
+					 &= e^{-j2 \pi (\frac{ux}{M})}e^{-j2 \pi (\frac{vy}{N})}\\
+					 &= r_1(x,u)r_2(y,v)	
+\end{aligned}
+$$
+we could say that the Fourier transformation kernel is separable.
 
-
-
+Since
+$$
+\begin{aligned}
+e^{-j2 \pi (\frac{ux}{M}+\frac{vy}{N})} &= e^{-j2 \pi (\frac{ux}{M})}\\
+					 															&= r_1(x,u)r_1(y,v)
+\end{aligned}
+$$
+it is symmetric.
 
 **Ex.10** We know from Eq. (2.6-23) that an affine transformation of coordinates is given by
 $$
