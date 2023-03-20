@@ -158,8 +158,18 @@ You just need to give one possible path for each type of path, and sketch one pa
 
 **Answer:**
 
-
-
+Given Eq.(2.6-5), at any point,
+$$
+\overline{g} = \dfrac{1}{K} \sum_{i=1}^{K}{g_i} = \dfrac{1}{K} \sum_{i=1}^{K}{f_i} + \dfrac{1}{K} \sum_{i=1}^{K}{\eta_i}.
+$$
+And
+$$
+E\{\overline{g}\} = \dfrac{1}{K} \sum_{i=1}^{K}\{f_i\} + \dfrac{1}{K} \sum_{i=1}^{K}\{\eta_i\}.
+$$
+Also,
+$$
+E\{\overline{f_i}\} = f
+$$
 
 
 ***
