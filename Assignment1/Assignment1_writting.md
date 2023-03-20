@@ -118,6 +118,8 @@ b)
 
 (c) They are 8-adjacent since there is a m-path.
 
+![](images/Ex.4.pdf)
+
 ***
 
 **Ex.5** Develop an algorithm for converting a one-pixel-thick m-path to a 4-path. Explain the principle and give the algorithm flow chart or pseudo code.
