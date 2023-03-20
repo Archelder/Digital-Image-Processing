@@ -124,7 +124,9 @@ b)
 
 **Answer:**
 
+Find alll m-paths of the pixel *p*, convert its corresponding neighbours to fit for a 4-path.
 
+![](images/Solution Ex.5.png)
 
 ***
 
