@@ -1,6 +1,6 @@
 # A Simple Technical Guidance for DIP
 
-<center>This article has been updated, bearing the date of 2023MAY20, by Kilo A. FENG</center>
+<center>This article has been updated, bearing the date of 2023MAY21, by Kilo A. FENG</center>
 
 [toc]
 
@@ -25,7 +25,7 @@ Click the URL: https://mirror.nju.edu.cn/github-release/conda-forge/miniforge/La
 
 ###### Configuration
 
-We strongly recommend any domestic user to switch the default channel of *conda* to a domestic mirror for the purpose of getting a higher access speed. One way to switch to USTC Mirror is shown below, readers may switch to other domestic mirrors such as THU Mirror, NJU Mirror and Ali Mirror, et cetera, whose URL can be found vis the Internet easily.
+We strongly recommend any domestic user to switch the default channel of *conda* to a domestic mirror for the purpose of getting a higher access speed. One way to switch to USTC Mirror is shown below, readers may switch to other domestic mirrors such as THU Mirror, NJU Mirror and Ali Mirror, et cetera, whose URL can be found via the Internet easily.
 
 Execute the following commands line by line in your command line interface (shell/terminal/cmd...)
 
