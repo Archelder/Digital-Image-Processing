@@ -157,19 +157,34 @@ You just need to give one possible path for each type of path, and sketch one pa
 **Ex.7** Prove the validity of Eqs. (2.6-6) and (2.6-7). [Hint: Start with Eq. (2.6-4) and use the fact that the expected value of a sum is the sum of the expected values.]
 
 **Answer:**
+$$
+\begin{aligned}
+					 g(x,y) &= f(x,y) + \eta(x,y) \\
+\overline{g}(x,y) &= \dfrac{1}{K} \sum_{i=1}^{K}{g_i(x,y)} \\
+\end{aligned}
+$$
+$$
+\begin{aligned}
+\Rightarrow E\left[\overline{g}(x,y)\right] 
+&= E\left[ \dfrac{1}{K} \sum_{i=i}^K g_i(x,y) \right] \\
+&= E\left[ \dfrac{1}{K} \sum_{i=i}^K f_i(x,y) + \eta_i(x,y)\right] \\
+&= \dfrac{1}{K} E\left[ \dfrac{1}{K} \sum_{i=i}^K f_i(x,y) \right] +
+	 \dfrac{1}{K} E\left[ \dfrac{1}{K} \sum_{i=i}^K \eta_i(x,y) \right] \\
+&= f(x,y)
+\end{aligned}
+$$
 
-Given Eq.(2.6-5), at any point,
 $$
-\overline{g} = \dfrac{1}{K} \sum_{i=1}^{K}{g_i} = \dfrac{1}{K} \sum_{i=1}^{K}{f_i} + \dfrac{1}{K} \sum_{i=1}^{K}{\eta_i}.
+\begin{aligned}
+\sigma^2 \left[\overline{g}(x,y)\right]
+&= \sigma^2 \left[\dfrac{1}{K} \sum_{i=1}^{K}{g_i(x,y)}\right] \\
+&= \dfrac{1}{K^2} \sigma^2 \left[\sum_{i=1}^{K}(f_i(x,y) + \eta_i(x,y))\right] \\
+&= \dfrac{1}{K^2} \sigma^2 \left[\sum_{i=1}^{K}f_i(x,y)\right] +
+   \dfrac{1}{K^2} \sigma^2 \left[\sum_{i=1}^{K}\eta_i(x,y)\right] \\
+&= \dfrac{1}{K^2} \sigma^2_\eta
+\end{aligned}
 $$
-And
-$$
-E\{\overline{g}\} = \dfrac{1}{K} \sum_{i=1}^{K}\{f_i\} + \dfrac{1}{K} \sum_{i=1}^{K}\{\eta_i\}.
-$$
-Also,
-$$
-E\{\overline{f_i}\} = f
-$$
+
 
 
 ***
