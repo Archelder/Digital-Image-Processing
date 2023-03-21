@@ -267,7 +267,7 @@ where $(x', y')$ are the are the transformed coordinates, $(x, y)$ are the origi
 $$
 \mathbf{A^{-1}} = \left(
 \begin{array}{cccc}
-\frac{-1}{C_{x}}& 0 & 0\\
+\frac{1}{C_{x}}& 0 & 0\\
 0&\frac{1}{C_{y}}&0\\
 
 0 & 0 & 1\\
