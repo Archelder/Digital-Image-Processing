@@ -195,9 +195,12 @@ $$
 
 **Answer:**
 
-
-
-
+(a) Pixels are integer values, and 8 bits allow representation of 256 contiguous integer values. In our work,the range of intensity values for 8-bit images is [0,255].The subtraction of values in this range cover the range [-255,255]. This range of values cannot be covered by 8 bits, but it is given in the problem statement that the result of subtraction has to be represented in 8 bits also, and, consistent with the range of values used for 8-bit images throughout the book, we assume that values of the 8-bit difference images are in the range [0,255].What this means is that any subtraction of 2 pixels that yields a negative quantity will be clipped at 0.The process of repeated subtractions of an image b(x,y) from an image a(x,y) can be expressed as
+$$
+d(x,y)=a(x,y)-\sum_{k=1}^Kb(x,y)=a(x,y)-K\times b(x,y).
+$$
+(b) The order does matter. For example, suppose that at a pair of arbitrary coordinates, $(x_0,y_0)$,
+$a(x_0,y_0) =128$ and $b(x_0,y_0) =0$. Subtracting $b(x_0,y_0)$ from $a(x_0,y_0)$ will result in $d(x_0,y_0)=128$ in the limit. Reversing the operation will result in a value of 0 in that same location.
 
 ***
 
