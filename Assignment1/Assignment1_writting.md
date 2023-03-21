@@ -241,6 +241,75 @@ where $(x', y')$ are the are the transformed coordinates, $(x, y)$ are the origi
 (d) Find the inverse rotation transformation.
 (e) Show a composite inverse translation/rotation transformation.
 
+**Answer:**
+
+(a) The inverse scaling transformation
+$$
+\mathbf{A^{-1}} = \left(
+\begin{array}{cccc}
+\frac{-1}{C_{x}}& 0 & 0\\
+0&\frac{1}{C_{y}}&0\\
+
+0 & 0 & 1\\
+\end{array}
+\right)
+$$
+(b) The inverse translation transformation
+$$
+\mathbf{A^{-1}} = \left(
+\begin{array}{cccc}
+1& 0 & 0\\
+0&1&0\\
+
+-t_{x}& -t_{y} & 1\\
+\end{array}
+\right)
+$$
+(c) The inverse vertical and horizontal shearing transformations
+$$
+\mathbf{A_v^{-1}} = \left(
+\begin{array}{cccc}
+1& 0 & 0\\
+-S_{v}&1&0\\
+
+0& 0& 1\\
+\end{array}
+\right)
+
+\\\\
+
+\mathbf{A_h^{-1}} = \left(
+\begin{array}{cccc}
+1& -S_{h}& 0\\
+0&1&0\\
+
+0& 0& 1\\
+\end{array}
+\right)
+$$
+(d) The inverse rotation transformation
+$$
+\mathbf{A^{-1}} = \left(
+\begin{array}{cccc}
+cos\theta& -sin\theta& 0\\
+sin\theta&cos\theta&0\\
+
+0& 0& 1\\
+\end{array}
+\right)
+$$
+(e) A composite inverse translation/rotation transformation
+$$
+\mathbf{A^{-1}} = \left(
+\begin{array}{cccc}
+cos\theta& -sin\theta& 0\\
+sin\theta&cos\theta&0\\
+
+-t_{x}& -t_{y}& 1\\
+\end{array}
+\right)
+$$
+
 <div STYLE="page-break-after: always;"></div>
 
 <font face = "微软雅黑"  size= 5><b>Part II Programming</b></font>
