@@ -116,7 +116,7 @@ b)
 
 (b) They are 8-adjacent since there is a 8-path.
 
-(c) They are 8-adjacent since there is a m-path.
+(c) They are m-adjacent since there is a m-path.
 
 ![](images/Ex.4.pdf)
 
