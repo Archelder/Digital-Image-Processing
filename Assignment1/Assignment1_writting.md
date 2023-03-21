@@ -550,12 +550,7 @@ plot.subplot(133), plot.imshow(ROI_img, cmap='gray'), plot.title('ROI_img'), plo
 plot.show()
 ```
 
-
-​    
 ![png](images/Result Example 2.7.2.png)
-​    
-
-
 
 ***
 
