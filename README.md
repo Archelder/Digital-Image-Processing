@@ -1,6 +1,6 @@
 # A Simple Technical Guidance for DIP
 
-<center>This article has been updated, bearing the date of 2023MAY21, by Kilo A. FENG</center>
+<center>This article has been updated, bearing the date of 2023MAY20, by Kilo A. FENG</center>
 
 [toc]
 
@@ -12,11 +12,11 @@
 
 #### Packges Management Tools
 
-Is is inevitable to install various packages for using *python* to handle things with complexity. However, the installation of various packages might be **a little bit annoying**. Packages management tools is likely to make the process of installation simpler. We recommend *Anaconda* and *pip* to manage packages.
+Inevitable it is to install various packages for using *python* to handle things with complexity. However, the installation of various packages might be **a little bit annoying**. Packages management tools is likely to make the process of installation simpler. We recommend *Anaconda* and *pip* to manage packages.
 
 ##### A. Anaconda/Miniforge (conda)
 
-*Anaconda* is a famous commercial application for virtual environments management as well as packges management, which can provide a GUI. Due to its commercial attribute, we recommend ***miniforge*** as an alternative, which provide quite similar functions and commands but maintaining by a open source community rather than a commercial corporation. However, *minidorge* do not offer a GUI, which is not necessary for the strong.
+*Anaconda* is a famous commercial application for virtual environments management as well as packges management, which can provide a GUI. Due to its commercial attribute, we recommend ***miniforge*** as an alternative, which provide quite similar functions and commands but maintained by an open source community rather than a commercial corporation. However, *minidorge* do not offer a GUI, which is not necessary for the strong.
 
 ###### Installation
 
