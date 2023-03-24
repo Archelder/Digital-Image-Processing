@@ -1,6 +1,6 @@
 <center><font face="微软雅黑" size=5 color=red><b>数字图像处理及应用 第2次作业</b></font></center>
 
-<center><font face=“微软雅黑" size=4 color = blue><b>组号： <u>XX（两位数字）</u>&emsp;小组成员： <u>（列出所有小组成员，成员姓名间用1个空格间隔）</u></b></font></center>
+<center><font face=“微软雅黑" size=4 color = blue><b>组号： <u>16</u>&emsp;小组成员： <u>冯坤龙 郝锦阳 朱从庆 辛梓阳 徐振良</u></b></font></center>
 
 
 
