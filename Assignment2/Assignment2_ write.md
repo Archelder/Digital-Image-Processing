@@ -20,9 +20,14 @@
 
 **Answer:**
 
-
-
-
+(a) 
+$$
+\begin{aligned}
+s &= T(r)\\
+  &= \dfrac{1}{1 + (\frac{k}{r})^E}
+\end{aligned}
+$$
+(b) 
 
 ***
 
