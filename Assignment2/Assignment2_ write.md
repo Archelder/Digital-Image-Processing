@@ -29,6 +29,8 @@ s &= T(r)\\
 $$
 (b) 
 
+![ansfig_A2-Ex.1(b)](images/ansfig_A2-Ex.1(b).png)
+
 ***
 
 **Ex.2** 
