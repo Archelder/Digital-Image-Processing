@@ -24,7 +24,7 @@
 $$
 \begin{aligned}
 s &= T(r)\\
-  &= \dfrac{1}{1 + (\frac{k}{r})^E}
+  &= \dfrac{1}{1 + (\frac{m}{r})^E}
 \end{aligned}
 $$
 (b) 
