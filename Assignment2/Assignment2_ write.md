@@ -24,12 +24,37 @@
 $$
 \begin{aligned}
 s &= T(r)\\
-  &= \dfrac{1}{1 + (\frac{m}{r})^E}
+  &= \dfrac{1}{1 + (\frac{m}{r})^E}.
 \end{aligned}
 $$
 (b) 
 
 ![ansfig_A2-Ex.1(b)](images/ansfig_A2-Ex.1(b).png)
+
+(c) The contrast stretching function shown in **Fig 3.2(b)** could be described as 
+$$
+s = T(r) = \left\{\begin{array}{left}
+0,   & r \le m-1 \\
+1,   & r \ge m+1. \\
+\end{array}{}\right.
+$$
+In equation (a), if $r=m$, it is evident that $s = T(r) = 0.5$, regardless of any value of parameter $E$. 
+
+As a consequence, 
+$$
+s = T(r) = \left\{\begin{array}{left}
+0,   & r \lt m-1 \\
+0.5, & r = m\\
+1,   & r \gt m+1. \\
+\end{array}{}\right.
+$$
+$C$ is the smallest positive number representable in the computer while $s$ is also positive. Finding the smallest value of $E$ is to solve the following equation where $m=128$.
+$$
+\begin{array}{}
+\dfrac{1}{1 + \left( \frac{m}{m-1} \right) ^E} \lt \dfrac{C}{2}\\
+\end{array}
+$$
+
 
 ***
 
