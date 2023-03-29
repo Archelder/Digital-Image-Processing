@@ -32,4 +32,5 @@ plt.xlim(0, 500)
 plt.legend(loc='best', frameon=True)
 plt.title('Figure: a family of transformations as a function of E\n'
           r'$ s = \frac{1}{1 + (\dfrac{m}{r})^E} $')
+plt.savefig('../images/fig_sketch_A2-Ex.1.png')
 plt.show()
