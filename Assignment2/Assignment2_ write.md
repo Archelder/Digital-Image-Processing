@@ -110,13 +110,124 @@ $$
 
 (**b**) Compute $w_1\star f$ using the minimum zero padding. Show the details of your computation when the kernel is centered at point (2, 3) (2nd row, 3rd col) of $f$ and then show the full convolution.
 
-(**c**) Compute the convolution of $w_2$ with the result from (**b**). Show the details of your computation when the kernel is centered at 
-point (3, 3) of the result from (b), and then show the full convolution. Compare with the result of $w\star f$.
+(**c**) Compute the convolution of $w_2$ with the result from (**b**). Show the details of your computation when the kernel is centered at point (3, 3) of the result from (b), and then show the full convolution. Compare with the result of $w\star f$.
 
 **Answer:**
 
+(a) 
+$$
+w_1 = w &= 
+\begin{bmatrix}
+1 & 2 & 1\\
+2 & 4 & 2\\
+1 & 2 & 1
+\end{bmatrix}\\
+w_2 &= 
+\begin{bmatrix}
+0 & 0 & 0\\
+0 & 1 & 0\\
+0 & 0 & 0
+\end{bmatrix}\\
+$$
+(b) Minimum zero padding of $f$:
+$$
+f = 
+\begin{bmatrix}
+0	&	0	&	0	&	0	&	0	&	0	&	0	\\
+0	&	0	&	0	&	0	&	0	&	0	&	0	\\
+0	&	0	&	0	&	1	&	0	&	0	&	0	\\
+0	&	0	&	0	&	1	&	0	&	0	&	0	\\
+0	&	0	&	0	&	1	&	0	&	0	&	0	\\
+0	&	0	&	0	&	0	&	0	&	0	&	0	\\
+0	&	0	&	0	&	0	&	0	&	0	&	0	\\
+\end{bmatrix}.
+$$
+Thus,
+$$
+\begin{array}{ll}
 
+w_1\star f &=
 
+\begin{bmatrix}
+\cellcolor{yellow}1 & \cellcolor{yellow}2 & \cellcolor{yellow}1\\
+\cellcolor{yellow}2 & \cellcolor{orange}4 & \cellcolor{yellow}2\\
+\cellcolor{yellow}1 & \cellcolor{yellow}2 & \cellcolor{yellow}1
+\end{bmatrix}
+
+\star
+
+\begin{bmatrix}
+0	&	0	&	0	&	0	&	0	&	0	&	0	\\
+0	&	0	&	\cellcolor{yellow}0	&	\cellcolor{yellow}0	&	\cellcolor{yellow}0	&	0	&	0	\\
+0	&	0	&	\cellcolor{yellow}0	&	\cellcolor{orange}1	&	\cellcolor{yellow}0	&	0	&	0	\\
+0	&	0	&	\cellcolor{yellow}0	&	\cellcolor{yellow}1	&	\cellcolor{yellow}0	&	0	&	0	\\
+0	&	0	&	0	&	1	&	0	&	0	&	0	\\
+0	&	0	&	0	&	0	&	0	&	0	&	0	\\
+0	&	0	&	0	&	0	&	0	&	0	&	0	\\
+\end{bmatrix}\\
+
+&=
+
+\begin{bmatrix}
+0	&	1	&	2	&	1	&	0	\\
+0	&	3	&	\cellcolor{orange}6	&	3	&	0	\\
+0	&	4	&	8	&	4	&	0	\\
+0	&	3	&	6	&	3	&	0	\\
+0	&	1	&	2	&	1	&	0	\\
+\end{bmatrix}.
+
+\end{array}{}
+$$
+(c) 
+$$
+\begin{array}{ll}
+w_2 \star (w_1\star f) &=
+\begin{bmatrix}
+\cellcolor{yellow}0 & \cellcolor{yellow}0 & \cellcolor{yellow}0\\
+\cellcolor{yellow}0 & \cellcolor{orange}1 & \cellcolor{yellow}0\\
+\cellcolor{yellow}0 & \cellcolor{yellow}0 & \cellcolor{yellow}0
+\end{bmatrix}
+
+\star
+
+\begin{bmatrix}
+0	&	1	&	2	&	1	&	0	\\
+0	&	\cellcolor{yellow}3	& \cellcolor{yellow}6	&	\cellcolor{yellow}3	&	0	\\
+0	&	\cellcolor{yellow}4	&	\cellcolor{orange}8	&	\cellcolor{yellow}4	&	0	\\
+0	&	\cellcolor{yellow}3	&	\cellcolor{yellow}6	&	\cellcolor{yellow}3	&	0	\\
+0	&	1	&	2	&	1	&	0	\\
+\end{bmatrix}
+=
+\begin{bmatrix}
+0	&	1	&	2	&	1	&	0	\\
+0	&	3	&	6	&	3	&	0	\\
+0	&	4	&	\cellcolor{orange}8	&	4	&	0	\\
+0	&	3	&	6	&	3	&	0	\\
+0	&	1	&	2	&	1	&	0	\\
+\end{bmatrix}\\
+&=
+\begin{bmatrix}
+0	&	0	&	0	&	0	&	0	&	0	&	0	\\
+0	&	0	&	1	&	2	&	1	&	0	&	0	\\
+0	&	0	&	3	&	6	&	3	&	0	&	0	\\
+0	&	0	&	4	&	8	&	4	&	0	&	0	\\
+0	&	0	&	3	&	6	&	3	&	0	&	0	\\
+0	&	0	&	1	&	2	&	1	&	0	&	0	\\
+0	&	0	&	0	&	0	&	0	&	0	&	0	\\
+\end{bmatrix}\\
+\\
+w \star f = w_1 \star f &=
+\begin{bmatrix}
+0	&	1	&	2	&	1	&	0	\\
+0	&	3	&	6	&	3	&	0	\\
+0	&	4	&	8	&	4	&	0	\\
+0	&	3	&	6	&	3	&	0	\\
+0	&	1	&	2	&	1	&	0	\\
+\end{bmatrix}
+
+=w_2 \star (w_1\star f).
+\end{array}{}
+$$
 
 
 ***
