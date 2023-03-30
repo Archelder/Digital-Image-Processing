@@ -71,36 +71,52 @@ p_z(z) =
 \left\{\begin{array}{}
 4z, & z \in [0,0.5] \\
 -4z + 4, & z \in (0.5, 1]\\
-0, & else
+0, & else.
 \end{array}{}\right.
-.
 $$
-Equalising $p_r(r)$ as follows.
+Equalizing $p_r(r)$ as follows.
 $$
-\begin{array}{left}
+\begin{array}{l}
 s &= (L - 1) \int_0^r {p_r{(w)} dw}\\
   &= (L - 1) \int_0^r {(-2w +2)dw}\\
   &= (L - 1) (-r^2 + 2r)\\\\
 \end{array}{}
 $$
 
-Equalising $p_z(z)$ as follows.
+Equalizing $p_z(z)$ as follows.
 $$
 G(z)=
-\left\{\begin{array}{}
-(L-1)\int_0^r 4v dv = (L-1)2r^2, & 0 \le r \lt \dfrac{1}{2}\\
+\left\{\begin{array}{lc}
+(L-1)\int_0^z 4v dv = (L-1)2z^2, & 0 \le z \lt \dfrac{1}{2}\\
 (L-1)
 \left[
-\int_0^{\frac{1}{2}} 4v dv \ +\  \int_{\frac{1}{2}}^r (-4v + 4) dv 
+\int_0^{\frac{1}{2}} 4v dv \ +\  \int_{\frac{1}{2}}^z (-4v + 4) dv 
 \right]
-= (L-1)(-2r^2 + 4r -1) , & \dfrac{1}{2} \le r \lt 1\\
+= (L-1)(-2z^2 + 4z -1) , & \dfrac{1}{2} \le z \lt 1\\
 
 (L-1)
 \left[
 \int_0^{\frac{1}{2}} 4v dv \ +\  \int_{\frac{1}{2}}^1 (-4v + 4) dv 
-\right]=L-1, & 1 \le r
+\right]=L-1, & 1 \le z
 \end{array}{}\right.
 .
+$$
+
+$$
+\begin{array}{l}
+G(z) = s &=
+\left\{\begin{array}{lc}
+(L-1)2z^2, & 0 \le z \lt \dfrac{1}{2}\\
+(L-1)(-2z^2 + 4z -1) , & \dfrac{1}{2} \le z \lt 1\\
+L-1, & 1 \le z
+\end{array}{}\right.\\
+
+\Rightarrow z =
+\left\{\begin{array}{lc}
+\left( \dfrac{s}{2L - 2} \right)^\frac{1}{2}, & 0 \le s \lt \dfrac{L-1}{2}\\
+
+\end{array}{}\right.\\
+\end{array}{}
 $$
 
 
