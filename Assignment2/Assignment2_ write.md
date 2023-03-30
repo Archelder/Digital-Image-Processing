@@ -88,7 +88,7 @@ f(x,y)=
 $$
 And
 $$
-\sum_{i=i}^{3} \sum_{j=i}^{3} {w(i,j)} = 0\\
+\sum_{i=1}^{3} \sum_{y=1}^{3} {w(i,y)} = 0\\
 w(x,y) \star f(x,y) =
 \begin{bmatrix}
  1	&	 1	&	 1\\
