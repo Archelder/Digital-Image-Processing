@@ -46,7 +46,7 @@ An image with intensities in the range [0, 1] has the PDF $p_r{(r)}$ shown in th
 
 (**b**) The ratio of the number of computations performed by a brute-force implementation to the number of computations performed by the box-filter algorithm is called the *computational advantage*. Obtain the computational advantage in this case and plot it as a function of $n$ for $n > 1$. The $1/n^2$ scaling factor is common to both approaches, so you need not consider it in obtaining the computational advantage. Assume that the image has an outer border of zeros that is wide enough to allow you to ignore border effects in your analysis.
 
-**Answer:**
+**Answer:**靳钊
 
 
 
