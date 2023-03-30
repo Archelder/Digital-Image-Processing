@@ -70,7 +70,7 @@ p_r(r) = -2r + 2\\\\
 p_z(z) = 
 \left\{\begin{array}{}
 4z, & z \in [0,0.5] \\
--4z, & z \in (0.5, 1]\\
+-4z + 4, & z \in (0.5, 1]\\
 0, & else
 \end{array}{}\right.
 .
@@ -79,9 +79,30 @@ Equalising $p_r(r)$ as follows.
 $$
 \begin{array}{left}
 s &= (L - 1) \int_0^r {p_r{(w)} dw}\\
-  &= (L - 1) \int_0^r {-2w dw}\\
+  &= (L - 1) \int_0^r {(-2w +2)dw}\\
+  &= (L - 1) (-r^2 + 2r)\\\\
 \end{array}{}
 $$
+
+Equalising $p_z(z)$ as follows.
+$$
+G(z)=
+\left\{\begin{array}{}
+(L-1)\int_0^r 4v dv = (L-1)2r^2, & 0 \le r \lt \dfrac{1}{2}\\
+(L-1)
+\left[
+\int_0^{\frac{1}{2}} 4v dv \ +\  \int_{\frac{1}{2}}^r (-4v + 4) dv 
+\right]
+= (L-1)(-2r^2 + 4r -1) , & \dfrac{1}{2} \le r \lt 1\\
+
+(L-1)
+\left[
+\int_0^{\frac{1}{2}} 4v dv \ +\  \int_{\frac{1}{2}}^1 (-4v + 4) dv 
+\right]=L-1, & 1 \le r
+\end{array}{}\right.
+.
+$$
+
 
 
 ***
