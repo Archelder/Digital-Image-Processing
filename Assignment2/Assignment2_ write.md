@@ -32,10 +32,24 @@ An image with intensities in the range [0, 1] has the PDF $p_r{(r)}$ shown in th
 
 <div align=center><img src="./images/problem_3.11.png" alt="problem 3.11" style="zoom:120%;"></div>
 
-**Answer:**
-
-
-
+**Answer:** From diagrams above,
+$$
+p_r(r) = -2r + 2\\\\
+p_z(z) = 
+\left\{\begin{array}{}
+4z, & z \in [0,0.5] \\
+-4z, & z \in (0.5, 1]\\
+0, & else
+\end{array}{}\right.
+.
+$$
+Equalising $p_r(r)$ as follows.
+$$
+\begin{array}{left}
+s &= (L - 1) \int_0^r {p_r{(w)} dw}\\
+  &= (L - 1) \int_0^r {-2w dw}\\
+\end{array}{}
+$$
 
 
 ***
