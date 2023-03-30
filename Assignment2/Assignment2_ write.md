@@ -99,7 +99,7 @@ w(x,y) \star f(x,y) =
 $$
 As a conclusion, if the coefficients of the mask sum to zero, then the sum of all the elements in the resulting convolution array (filtered image) will be zero also.
 
-(b) 
+(b) Similarly, correlation is inverting the convolution, thus the same results is expected.
 
 ***
 
