@@ -304,7 +304,7 @@ However, the bars have merged in image (**b**), despite the fact that the kernel
 
 ***
 
-**1.** ***Generate two images with the size of $256\times{256}$ pixels*** which looks like the following images  just containing two gray-levels. These two images are quite different, but their histograms are the same. Suppose that each image is blurred with a averaging mask.
+**1.** ***Generate two images with the size of $256\times{256}$ pixels*** which looks like the following images  just containing two gray-levels. These two images are quite different, but their histograms are the same. Suppose that each image is blurred with an averaging mask.
 (**a**) Would the histograms of the blurred images still be equal? Explain.
 (**b**) If your answer is no, sketch the two histograms.
 
