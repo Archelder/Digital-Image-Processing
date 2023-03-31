@@ -1,4 +1,3 @@
-import cv2
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -14,13 +13,10 @@ img_b_piece = np.concatenate(
 img_b = np.tile(img_b_piece, (4, 4))
 img_b = img_b.astype(np.uint8)
 
-hist_a = cv2.calcHist([img_a], channels=[0], mask=None, histSize=[1], ranges=[0, 2])
-hist_b = cv2.calcHist([img_b], channels=[0], mask=None, histSize=[1], ranges=[0, 2])
-
 plt.subplot(221), plt.imshow(img_a, cmap='gray'), plt.title('image a'), plt.axis('off')
-plt.subplot(222), plt.hist(img_a.ravel()), plt.title('histgram a')
+plt.subplot(222), plt.hist(img_a.ravel(), bins=256), plt.title('histgram a')
 plt.subplot(223), plt.imshow(img_b, cmap='gray'), plt.title('image b'), plt.axis('off')
-plt.subplot(224), plt.hist(img_b.ravel()), plt.title('histgram b')
-
+plt.subplot(224), plt.hist(img_b.ravel(), bins=256), plt.title('histgram b')
 plt.tight_layout()
+plt.savefig('../images/ansfig_A2-Programming.1.png')
 plt.show()
