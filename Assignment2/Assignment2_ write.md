@@ -313,9 +313,11 @@ However, the bars have merged in image (**b**), despite the fact that the kernel
 &nbsp
 <img src="./images/FigP0314(b).png" alt="Pro 3.14(b)" style="zoom:60%">
 </center>
+(a) No. The histograms of the blurred images will not be equal as image a possesses fewer boundaries than image b.Or, from another point of view, their local histograms is not equal everywhere. This conclusion could be proved by simulation.
+
 (*followed by  **Matlab live Scripts**  or **Jupyter Scripts** and running results*)
 
-(a)
+The following programme could Generate two images with the size of $256\times{256}$ pixels which looks like the following images  just containing two gray-levels. These two images are quite different, but their histograms are the same.
 
 Import dependencies.
 
