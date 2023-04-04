@@ -327,7 +327,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 ```
 
-Generate image a, using *np.concatenate()* to piece its left part and right part together.
+Generate image a, using `np.concatenate()` to piece its left part and right part together.
 
 
 ```python
@@ -337,7 +337,7 @@ img_a = np.concatenate((img_a_lt, img_a_rt), axis=1)
 img_a = img_a.astype(np.uint8)
 ```
 
-Generate image b, replicating its piece by *np,tile()*.
+Generate image b, replicating its piece by `np,tile()`.
 
 
 ```python
@@ -362,8 +362,7 @@ plt.show()
 
 ```
 
-​    ![ansfig_A2-Programming.1.png](images/ansfig_A2-Programming.1.png)
-​    
+![ansfig_A2-Programming.1.png](images/ansfig_A2-Programming.1.png)
 
 The following programmes implemented averaging filtering using a $9 \times 9$ kernel.
 
