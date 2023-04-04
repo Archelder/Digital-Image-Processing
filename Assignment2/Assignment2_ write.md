@@ -282,7 +282,20 @@ However, the bars have merged in image (**b**), despite the fact that the kernel
 
 **Answer:**
 
+In this area, we need up to $$q^2$$ points to reduce the average intensity of those objects to one-tenth of their original average value.At the same time I can conclude :the size of mask is larger than the $$q\times q$$ square neighborhood .Suppose the size of the filter mask is $$n\times n$$.The point set outside the object below the mask is called the background.
 
+Suppose $$a_{i}$$、$$a_{j}$$ and $$a_{k}$$ respectively represent the intensity value of points in the mask、object and background. Thus,the response of the averaging mask at any point on the image is :
+
+​                               $$R=\frac{1}{n^2}\sum\limits_{a_{i}\in A_{1}}a_{i}=\frac{1}{n^2}[\sum\limits_{a_{j}\in A_{2}}a_{j}+\sum\limits_{a_{k}\in A_{3}}a_{k}]                          $$                                       $$(1)$$
+
+​                               $$=\frac{1}{n^2}[\frac{q^2}{q^2}\sum\limits_{a_{j}\in A_{2}}a_{j}]+\frac{1}{n^2}\sum\limits_{a_{k}\in A_{3}}a_{k}=\frac{q^2}{n^2}Q+\frac{1}{n^2}(n^2-q^2) \times S$$
+
+$$A_{1}A_{2}A_{3}$$ respectively represent the pixel set of mask, object and background.S and Q represent the average intensity value of the background and object points respectively.
+Let Equ.(1)<$$\frac{Q}{10}$$,I can get:
+
+​                                                             $$n>q \times [\frac{10(Q-S)}{Q-10S}]^{0.5}$$
+
+Therefore the size of the smallest averaging mask is $$q \times [\frac{10(Q-S)}{Q-10S}]^{0.5}$$.
 
 
 
