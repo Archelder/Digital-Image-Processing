@@ -270,7 +270,7 @@ However, the bars have merged in image (**b**), despite the fact that the kernel
 
 From the Fig above,we know that the vertical bars are 5 pixels wide,100 pixels high and the separation is 20 pixels. The  phenomenon in question is related to the horizontal separation between bars, so we can simplify the question by considering a single scan line through the bars in the image. The key to solving this question lies  in the fact that the distance (in pixels) between the onset of one bar and the onset of the next one is 25 pixels. Consider the scan line shown in the Fig below. Also shown is a cross section of a $25\times25$ mask. The response of the mask is the average of the pixels that it encompasses. Notice that when the mask moves one pixel to the right, it loses one value of the vertical bar on the left, but it picks up an identical one on the right , so the response does not change. In fact , the number of pixels belonging to the vertical bars and contained within the mask does not change, regardless of where the mask is located (as long as it is contained within the bars, and not near the edges of the set of bars). The fact that the number of bar pixels under the mask does not change is due to the peculiar separation between bars and the width of the lines in relation to the 25-pixel width of the mask. This constant response is the reason why no white gaps are seen in the image shown in the problem statement. Note that this constant response does not happen with the $23\times23$ or the $45\times45$ masks because they are not "synchronized" with the width of the bars and their separation.
 
-
+![](./images/Ex8.jpg)
 
 
 
