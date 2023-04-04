@@ -50,10 +50,10 @@ An image with intensities in the range [0, 1] has the PDF $p_r{(r)}$ shown in th
 
 (a) Consider a $3 \times 3$ mask first. Because all the coefficients are 1 (we are ignoring the 1/9 scale factor), the net effect of the lowpass filter operation is to add all the intensity values of pixels under the mask. Initially, it takes 8 additions to produce the response of the mask. However, when the mask moves one pixel location to the right, it picks up only one new column. The new response can be computed as
 
-​                                                          $R_{new} = R_{old} - C_1 + C_3$
+​                                                           $R_{new} = R_{old} - C_1 + C_3$
 
-where $C_1$ is the sum of pixels under the first column of the mask before it was moved, and $C_3$  is the similar sum in the column it picked up after it moved. This is the basic box-filter or moving-average equation. For a $3 \times 3$ mask it takes 2 additions to get $C_3$ ( $C_1$ was already computed ). To this we add one subtraction and one addition to get R~new~. Thus, a total of 4 arithmetic operations are needed to update the response after one move. This is a recursive procedure for moving from left to right along one row of the image. When we get to the end of a row, we move down one pixel ( the nature of the computation is the same ) and continue the scan in the opposite direction.
-	For a mask of size $n \times n$, $( n - 1 )$ additions are needed to obtain C~3~, plus the single subtraction and addition needed to obtain R~new~, which gives a total of $( n + 1 )$ arithmetic operations after each move. A brute-force implementation would require n^2^ - 1 additions after each move.
+where $C_1$ is the sum of pixels under the first column of the mask before it was moved, and $C_3$  is the similar sum in the column it picked up after it moved. This is the basic box-filter or moving-average equation. For a $3 \times 3$ mask it takes 2 additions to get $C_3$ ( $C_1$ was already computed ). To this we add one subtraction and one addition to get $R_{new}$. Thus, a total of 4 arithmetic operations are needed to update the response after one move. This is a recursive procedure for moving from left to right along one row of the image. When we get to the end of a row, we move down one pixel ( the nature of the computation is the same ) and continue the scan in the opposite direction.
+	For a mask of size $n \times n$, $( n - 1 )$ additions are needed to obtain $C_3$, plus the single subtraction and addition needed to obtain $R_{new}$, which gives a total of $( n + 1 )$ arithmetic operations after each move. A brute-force implementation would require n^2^ - 1 additions after each move.
 
 (b) The computational advantage is  
 
