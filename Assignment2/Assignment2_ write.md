@@ -137,13 +137,124 @@ $$
 
 (**b**) Compute $w_1\star f$ using the minimum zero padding. Show the details of your computation when the kernel is centered at point (2, 3) (2nd row, 3rd col) of $f$ and then show the full convolution.
 
-(**c**) Compute the convolution of $w_2$ with the result from (**b**). Show the details of your computation when the kernel is centered at 
-point (3, 3) of the result from (b), and then show the full convolution. Compare with the result of $w\star f$.
+(**c**) Compute the convolution of $w_2$ with the result from (**b**). Show the details of your computation when the kernel is centered at point (3, 3) of the result from (b), and then show the full convolution. Compare with the result of $w\star f$.
 
 **Answer:**
 
+(a) 
+$$
+w_1 = w &= 
+\begin{bmatrix}
+1 & 2 & 1\\
+2 & 4 & 2\\
+1 & 2 & 1
+\end{bmatrix}\\
+w_2 &= 
+\begin{bmatrix}
+0 & 0 & 0\\
+0 & 1 & 0\\
+0 & 0 & 0
+\end{bmatrix}\\
+$$
+(b) Minimum zero padding of $f$:
+$$
+f = 
+\begin{bmatrix}
+0	&	0	&	0	&	0	&	0	&	0	&	0	\\
+0	&	0	&	0	&	0	&	0	&	0	&	0	\\
+0	&	0	&	0	&	1	&	0	&	0	&	0	\\
+0	&	0	&	0	&	1	&	0	&	0	&	0	\\
+0	&	0	&	0	&	1	&	0	&	0	&	0	\\
+0	&	0	&	0	&	0	&	0	&	0	&	0	\\
+0	&	0	&	0	&	0	&	0	&	0	&	0	\\
+\end{bmatrix}.
+$$
+Thus,
+$$
+\begin{array}{ll}
 
+w_1\star f &=
 
+\begin{bmatrix}
+\cellcolor{yellow}1 & \cellcolor{yellow}2 & \cellcolor{yellow}1\\
+\cellcolor{yellow}2 & \cellcolor{orange}4 & \cellcolor{yellow}2\\
+\cellcolor{yellow}1 & \cellcolor{yellow}2 & \cellcolor{yellow}1
+\end{bmatrix}
+
+\star
+
+\begin{bmatrix}
+0	&	0	&	0	&	0	&	0	&	0	&	0	\\
+0	&	0	&	\cellcolor{yellow}0	&	\cellcolor{yellow}0	&	\cellcolor{yellow}0	&	0	&	0	\\
+0	&	0	&	\cellcolor{yellow}0	&	\cellcolor{orange}1	&	\cellcolor{yellow}0	&	0	&	0	\\
+0	&	0	&	\cellcolor{yellow}0	&	\cellcolor{yellow}1	&	\cellcolor{yellow}0	&	0	&	0	\\
+0	&	0	&	0	&	1	&	0	&	0	&	0	\\
+0	&	0	&	0	&	0	&	0	&	0	&	0	\\
+0	&	0	&	0	&	0	&	0	&	0	&	0	\\
+\end{bmatrix}\\
+
+&=
+
+\begin{bmatrix}
+0	&	1	&	2	&	1	&	0	\\
+0	&	3	&	\cellcolor{orange}6	&	3	&	0	\\
+0	&	4	&	8	&	4	&	0	\\
+0	&	3	&	6	&	3	&	0	\\
+0	&	1	&	2	&	1	&	0	\\
+\end{bmatrix}.
+
+\end{array}{}
+$$
+(c) 
+$$
+\begin{array}{ll}
+w_2 \star (w_1\star f) &=
+\begin{bmatrix}
+\cellcolor{yellow}0 & \cellcolor{yellow}0 & \cellcolor{yellow}0\\
+\cellcolor{yellow}0 & \cellcolor{orange}1 & \cellcolor{yellow}0\\
+\cellcolor{yellow}0 & \cellcolor{yellow}0 & \cellcolor{yellow}0
+\end{bmatrix}
+
+\star
+
+\begin{bmatrix}
+0	&	1	&	2	&	1	&	0	\\
+0	&	\cellcolor{yellow}3	& \cellcolor{yellow}6	&	\cellcolor{yellow}3	&	0	\\
+0	&	\cellcolor{yellow}4	&	\cellcolor{orange}8	&	\cellcolor{yellow}4	&	0	\\
+0	&	\cellcolor{yellow}3	&	\cellcolor{yellow}6	&	\cellcolor{yellow}3	&	0	\\
+0	&	1	&	2	&	1	&	0	\\
+\end{bmatrix}
+=
+\begin{bmatrix}
+0	&	1	&	2	&	1	&	0	\\
+0	&	3	&	6	&	3	&	0	\\
+0	&	4	&	\cellcolor{orange}8	&	4	&	0	\\
+0	&	3	&	6	&	3	&	0	\\
+0	&	1	&	2	&	1	&	0	\\
+\end{bmatrix}\\
+&=
+\begin{bmatrix}
+0	&	0	&	0	&	0	&	0	&	0	&	0	\\
+0	&	0	&	1	&	2	&	1	&	0	&	0	\\
+0	&	0	&	3	&	6	&	3	&	0	&	0	\\
+0	&	0	&	4	&	8	&	4	&	0	&	0	\\
+0	&	0	&	3	&	6	&	3	&	0	&	0	\\
+0	&	0	&	1	&	2	&	1	&	0	&	0	\\
+0	&	0	&	0	&	0	&	0	&	0	&	0	\\
+\end{bmatrix}\\
+\\
+w \star f = w_1 \star f &=
+\begin{bmatrix}
+0	&	1	&	2	&	1	&	0	\\
+0	&	3	&	6	&	3	&	0	\\
+0	&	4	&	8	&	4	&	0	\\
+0	&	3	&	6	&	3	&	0	\\
+0	&	1	&	2	&	1	&	0	\\
+\end{bmatrix}
+
+=w_2 \star (w_1\star f).
+\end{array}{}
+$$
 
 
 ***
@@ -220,7 +331,7 @@ However, the bars have merged in image (**b**), despite the fact that the kernel
 
 ***
 
-**1.** ***Generate two images with the size of $256\times{256}$ pixels*** which looks like the following images  just containing two gray-levels. These two images are quite different, but their histograms are the same. Suppose that each image is blurred with a averaging mask.
+**1.** ***Generate two images with the size of $256\times{256}$ pixels*** which looks like the following images  just containing two gray-levels. These two images are quite different, but their histograms are the same. Suppose that each image is blurred with an averaging mask.
 (**a**) Would the histograms of the blurred images still be equal? Explain.
 (**b**) If your answer is no, sketch the two histograms.
 
@@ -229,8 +340,92 @@ However, the bars have merged in image (**b**), despite the fact that the kernel
 &nbsp
 <img src="./images/FigP0314(b).png" alt="Pro 3.14(b)" style="zoom:60%">
 </center>
-
 (*followed by  **Matlab live Scripts**  or **Jupyter Scripts** and running results*)
+
+(a) No. The histograms of the blurred images will not be equal as image a possesses fewer boundaries than image b.Or, from another point of view, their local histograms is not equal everywhere. This conclusion could be proved by simulation.
+
+(b) The following programme could Generate two images with the size of $256\times{256}$ pixels which looks like the following images  just containing two gray-levels. These two images are quite different, but their histograms are the same.
+
+Import dependencies.
+
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+```
+
+Generate image a, using *np.concatenate()* to piece its left part and right part together.
+
+
+```python
+img_a_lt = np.ones((256, 128))
+img_a_rt = np.zeros((256, 128))
+img_a = np.concatenate((img_a_lt, img_a_rt), axis=1)
+img_a = img_a.astype(np.uint8)
+```
+
+Generate image b, replicating its piece by *np,tile()*.
+
+
+```python
+img_b_white = np.ones((32, 32))
+img_b_black = np.zeros((32, 32))
+img_b_piece = np.concatenate(
+    (np.concatenate((img_b_white, img_b_black), axis=1), np.concatenate((img_b_black, img_b_white), axis=1)), axis=0)
+img_b = np.tile(img_b_piece, (4, 4))
+img_b = img_b.astype(np.uint8)
+```
+
+Display the results.
+
+
+```python
+plt.subplot(221), plt.imshow(img_a, cmap='gray'), plt.title('image a'), plt.axis('off')
+plt.subplot(222), plt.hist(img_a.ravel(), bins=256), plt.title('histgram a')
+plt.subplot(223), plt.imshow(img_b, cmap='gray'), plt.title('image b'), plt.axis('off')
+plt.subplot(224), plt.hist(img_b.ravel(), bins=256), plt.title('histgram b')
+plt.tight_layout()
+plt.show()
+
+```
+
+​    ![ansfig_A2-Programming.1.png](images/ansfig_A2-Programming.1.png)
+​    
+
+The following programmes implemented averaging filtering using a $9 \times 9$ kernel.
+
+```python
+import cv2
+import numpy as np
+import matplotlib.pyplot as plt
+
+img_a_lt = np.ones((256, 128))
+img_a_rt = np.zeros((256, 128))
+img_a = np.concatenate((img_a_lt, img_a_rt), axis=1)
+
+img_b_white = np.ones((32, 32))
+img_b_black = np.zeros((32, 32))
+img_b_piece = np.concatenate(
+    (np.concatenate((img_b_white, img_b_black), axis=1), np.concatenate((img_b_black, img_b_white), axis=1)), axis=0)
+img_b = np.tile(img_b_piece, (4, 4))
+
+# blur images
+img_a_blurred = cv2.blur(img_a, ksize=(9, 9))
+img_b_blurred = cv2.blur(img_b, ksize=(9, 9))
+
+plt.subplot(231), plt.imshow(img_a, cmap='gray'), plt.title('image a'), plt.axis('off')
+plt.subplot(232), plt.imshow(img_a_blurred, cmap='gray'), plt.title('blurred image a'), plt.axis('off')
+plt.subplot(233), plt.hist(img_a_blurred.ravel(), bins=64), plt.title('histogram of \nblurred image a')
+plt.subplot(234), plt.imshow(img_b, cmap='gray'), plt.title('image b'), plt.axis('off')
+plt.subplot(235), plt.imshow(img_b_blurred, cmap='gray'), plt.title('blurred image b'), plt.axis('off')
+plt.subplot(236), plt.hist(img_b_blurred.ravel(), bins=64), plt.title('histogram of \nblurred image b')
+plt.tight_layout()
+plt.savefig('../images/ansfig_A2-Programming.1(b).png')
+plt.show()
+
+```
+
+![ansfig_A2-Programming.1(b).png](images/ansfig_A2-Programming.1(b).png)
 
 
 
@@ -244,3 +439,66 @@ However, the bars have merged in image (**b**), despite the fact that the kernel
 
 (*followed by  **Matlab live Scripts**  or **Jupyter Scripts** and running results*)
 
+```python
+import cv2
+import numpy as np
+import matplotlib.pyplot as plt
+
+GAMMA = 0.6
+
+a_original_img = cv2.imread('../images/Fig0343(a)(skeleton_orig).png', 0)
+a_original_img = a_original_img.astype(np.float64)
+
+b_laplacian_img = cv2.Laplacian(a_original_img, cv2.CV_64F, None)
+norm_b_laplacian_img = cv2.normalize(b_laplacian_img, None, 0, 256, cv2.NORM_MINMAX)
+
+c_sharpened_img = cv2.add(a_original_img, b_laplacian_img)  # c_sharpened_img = a_original_img + b_laplacian_img
+
+d_sobel_img_x = cv2.Sobel(a_original_img, cv2.CV_64F, 1, 0)
+d_sobel_img_x = cv2.convertScaleAbs(d_sobel_img_x)
+d_sobel_img_y = cv2.Sobel(a_original_img, cv2.CV_64F, 0, 1)
+d_sobel_img_y = cv2.convertScaleAbs(d_sobel_img_y)
+d_sobel_img = cv2.addWeighted(d_sobel_img_x, 0.5, d_sobel_img_y, 0.5, 0, dtype=cv2.CV_64F)
+
+e_smoothed_sobel_img = cv2.blur(d_sobel_img, (5, 5))
+
+f_mask_img = np.multiply(norm_b_laplacian_img, e_smoothed_sobel_img)
+
+g_sharpened_img = cv2.add(a_original_img, f_mask_img)
+g_sharpened_img = cv2.normalize(g_sharpened_img, None, 0, 256, cv2.NORM_MINMAX)
+h_gamma_trans_img = (cv2.pow((g_sharpened_img / 255), GAMMA)) * 255  # transformed from g_sharpened_img
+
+plt.figure(figsize=(12, 8))
+
+ls = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']
+i = 1
+plt.subplot(2, 4, i)
+plt.imshow(a_original_img, cmap='gray'), plt.title(f'({ls[i - 1]}) original', y=-0.1), plt.axis('off')
+i += 1
+plt.subplot(2, 4, i)
+plt.imshow(norm_b_laplacian_img, cmap='gray'), plt.title(f'({ls[i - 1]}) laplacian', y=-0.1), plt.axis('off')
+i += 1
+plt.subplot(2, 4, i)
+plt.imshow(c_sharpened_img, cmap='gray'), plt.title(f'({ls[i - 1]}) sharpened by laplacian', y=-0.1), plt.axis('off')
+i += 1
+plt.subplot(2, 4, i)
+plt.imshow(d_sobel_img, cmap='gray'), plt.title(f'({ls[i - 1]}) sobel', y=-0.1), plt.axis('off')
+i += 1
+plt.subplot(2, 4, i)
+plt.imshow(e_smoothed_sobel_img, cmap='gray'), plt.title(f'({ls[i - 1]}) smoothed sobel', y=-0.1), plt.axis('off')
+i += 1
+plt.subplot(2, 4, i)
+plt.imshow(f_mask_img, cmap='gray'), plt.title(f'({ls[i - 1]}) mask', y=-0.1), plt.axis('off')
+i += 1
+plt.subplot(2, 4, i)
+plt.imshow(g_sharpened_img, cmap='gray'), plt.title(f'({ls[i - 1]}) sharpened by mask', y=-0.1), plt.axis('off')
+i += 1
+plt.subplot(2, 4, i), plt.imshow(h_gamma_trans_img, cmap='gray')
+plt.title(f'({ls[i - 1]}) sharpened by mask\n ($\gamma = {GAMMA}$)', y=-0.15), plt.axis('off')
+
+plt.tight_layout()
+plt.show()
+
+```
+
+![](images/ansfig_A2-Programming.2.png)
