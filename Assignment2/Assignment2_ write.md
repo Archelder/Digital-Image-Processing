@@ -83,11 +83,38 @@ w(x,y)\otimes f(x,y) = \sum_{s=-a}^{s=a} \sum_{t=-b}^{t=b}w(x,y){f(x+s,y+t)} \ta
 $$
 here, the symbol $\otimes$ stands for correlation operation.
 
-**Answer:**
+**Answer:** 
 
+(a) Assume that 
+$$
+w(x,y) =
+\begin{bmatrix}
+ 1	&	 1	&	 1\\
+-1	&	 0	&	 1\\
+-1	&	-1	&	-1
+\end{bmatrix}
+\\\\
+f(x,y)=
+\begin{bmatrix}
+0	&	0	&	0	\\
+0	&	1	&	0	\\
+0	&	0	&	0	\\
+\end{bmatrix}.
+$$
+And
+$$
+\sum_{i=1}^{3} \sum_{y=1}^{3} {w(i,y)} = 0\\
+w(x,y) \star f(x,y) =
+\begin{bmatrix}
+ 1	&	 1	&	 1\\
+-1	&	 0	&	 1\\
+-1	&	-1	&	-1
+\end{bmatrix}
+=0.
+$$
+As a conclusion, if the coefficients of the mask sum to zero, then the sum of all the elements in the resulting convolution array (filtered image) will be zero also.
 
-
-
+(b) Similarly, correlation is inverting the convolution, thus the same results is expected.
 
 ***
 
