@@ -77,9 +77,9 @@ $$
 Equalizing $p_r(r)$ as follows.
 $$
 \begin{array}{l}
-s &= (L - 1) \int_0^r {p_r{(w)} dw}\\
-  &= (L - 1) \int_0^r {(-2w +2)dw}\\
-  &= (L - 1) (-r^2 + 2r)\\\\
+s &= \int_0^r {p_r{(w)} dw}\\
+  &= \int_0^r {(-2w +2)dw}\\
+  &= -r^2 + 2r\\\\
 \end{array}{}
 $$
 
@@ -87,34 +87,34 @@ Equalizing $p_z(z)$ as follows.
 $$
 G(z)=
 \left\{\begin{array}{lc}
-(L-1)\int_0^z 4v dv = (L-1)2z^2, & 0 \le z \lt \dfrac{1}{2}\\
-(L-1)
-\left[
-\int_0^{\frac{1}{2}} 4v dv \ +\  \int_{\frac{1}{2}}^z (-4v + 4) dv 
-\right]
-= (L-1)(-2z^2 + 4z -1) , & \dfrac{1}{2} \le z \lt 1\\
+\int_0^z 4v dv = 2z^2, & 0 \le z \lt \dfrac{1}{2}\\
 
-(L-1)
-\left[
+
+\int_0^{\frac{1}{2}} 4v dv \ +\  \int_{\frac{1}{2}}^z (-4v + 4) dv 
+
+= -2z^2 + 4z -1 , & \dfrac{1}{2} \le z \lt 1\\
+
+
+
 \int_0^{\frac{1}{2}} 4v dv \ +\  \int_{\frac{1}{2}}^1 (-4v + 4) dv 
-\right]=L-1, & 1 \le z
+=1, & 1 \le z
 \end{array}{}\right.
 .
 $$
 
 $$
 \begin{array}{l}
-G(z) = s &=
+G(z) = r &=
 \left\{\begin{array}{lc}
-(L-1)2z^2, & 0 \le z \lt \dfrac{1}{2}\\
-(L-1)(-2z^2 + 4z -1) , & \dfrac{1}{2} \le z \lt 1\\
-L-1, & 1 \le z
+2z^2, & 0 \le z \lt \dfrac{1}{2}\\
+-2z^2 + 4z -1, & \dfrac{1}{2} \le z \lt 1\\
+1, & 1 \le z
 \end{array}{}\right.\\
 
 \Rightarrow z =
 \left\{\begin{array}{lc}
-\left( \dfrac{s}{2L - 2} \right)^\frac{1}{2}, & 0 \le s \lt \dfrac{L-1}{2}\\
-
+\left(\dfrac{2r-r^2}{2} \right)^\frac{1}{2}, & 0 \le r \lt 1-\dfrac{\sqrt2}{2}\\
+1+\dfrac{r-1}{\sqrt2}, & 1-\dfrac{\sqrt2}{2} \lt r \le1
 \end{array}{}\right.\\
 \end{array}{}
 $$
