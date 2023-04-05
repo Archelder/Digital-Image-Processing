@@ -322,7 +322,24 @@ From the Fig above, we know that the vertical bars are 5 pixels wide and 100 pix
 
 **Answer:**
 
+In this area, we need up to $$q^2$$ points to reduce the average intensity of those objects to one-tenth of their original average value. At the same time I can conclude: the size of mask is larger than the $$q\times q$$ square neighbourhood. Suppose the size of the filter mask is $$n\times n$$.The point set outside the object below the mask is called the background.
 
+Suppose $$a_{i}$$, $$a_{j}$$ and $$a_{k}$$ respectively represent the intensity value of points in the mask, object and background. Thus, the response of the averaging mask at any point on the image is: 
+$$
+\begin{equation}
+\begin{array}{ll}
+R &= \dfrac{1}{n^2}\sum\limits_{a_{i}\in A_{1}}a_{i}=\dfrac{1}{n^2}[\sum\limits_{a_{j}\in A_{2}}a_{j}+\sum\limits_{a_{k}\in A_{3}}a_{k}]\\ 
+  &=\dfrac{1}{n^2}[\dfrac{q^2}{q^2}\sum\limits_{a_{j}\in A_{2}}a_{j}]+\dfrac{1}{n^2}\sum\limits_{a_{k}\in A_{3}}a_{k}=\dfrac{q^2}{n^2}Q+\dfrac{1}{n^2}(n^2-q^2) \times S
+\tag{1}
+\end{array}
+\end{equation}
+$$
+$$A_{1}A_{2}A_{3}$$ respectively represent the pixel set of mask, object and background. S and Q represent the average intensity value of the background and object points respectively.
+Let Equ.(1)$$\lt \dfrac{Q}{10}$$, I can get:
+$$
+n\gt q \times [\dfrac{10(Q-S)}{Q-10S}]^{0.5}
+$$
+Therefore the size of the smallest averaging mask is $$q \times [\dfrac{10(Q-S)}{Q-10S}]^{0.5}$$.
 
 
 
