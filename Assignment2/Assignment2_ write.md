@@ -64,7 +64,61 @@ An image with intensities in the range [0, 1] has the PDF $p_r{(r)}$ shown in th
 
 <div align=center><img src="./images/problem_3.11.png" alt="problem 3.11" style="zoom:120%;"></div>
 
-**Answer:** 
+
+**Answer:** From diagrams above,
+$$
+p_r(r) = -2r + 2\\\\
+p_z(z) = 
+\left\{\begin{array}{}
+4z, & z \in [0,0.5] \\
+-4z + 4, & z \in (0.5, 1]\\
+0, & else.
+\end{array}{}\right.
+$$
+Equalizing $p_r(r)$ as follows.
+$$
+\begin{array}{l}
+s &= \int_0^r {p_r{(w)} dw}\\
+  &= \int_0^r {(-2w +2)dw}\\
+  &= -r^2 + 2r\\\\
+\end{array}{}
+$$
+
+Equalizing $p_z(z)$ as follows.
+$$
+G(z)=
+\left\{\begin{array}{lc}
+\int_0^z 4v dv = 2z^2, & 0 \le z \lt \dfrac{1}{2}\\
+
+
+\int_0^{\frac{1}{2}} 4v dv \ +\  \int_{\frac{1}{2}}^z (-4v + 4) dv 
+
+= -2z^2 + 4z -1 , & \dfrac{1}{2} \le z \lt 1\\
+
+
+
+\int_0^{\frac{1}{2}} 4v dv \ +\  \int_{\frac{1}{2}}^1 (-4v + 4) dv 
+=1, & 1 \le z
+\end{array}{}\right.
+.
+$$
+
+$$
+\begin{array}{l}
+G(z) = r &=
+\left\{\begin{array}{lc}
+2z^2, & 0 \le z \lt \dfrac{1}{2}\\
+-2z^2 + 4z -1, & \dfrac{1}{2} \le z \lt 1\\
+1, & 1 \le z
+\end{array}{}\right.\\
+
+\Rightarrow z =
+\left\{\begin{array}{lc}
+\left(\dfrac{2r-r^2}{2} \right)^\frac{1}{2}, & 0 \le r \lt 1-\dfrac{\sqrt2}{2}\\
+1+\dfrac{r-1}{\sqrt2}, & 1-\dfrac{\sqrt2}{2} \lt r \le1
+\end{array}{}\right.\\
+\end{array}{}
+$$
 
 ***
 
