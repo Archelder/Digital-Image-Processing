@@ -281,7 +281,9 @@ This is followed by a procedure that thins the characters until they become stri
 
 **Answer:**
 
+(a) The most extreme case is when the mask is positioned on the centre pixel of a 3-pixel gap, along a thin segment, in which case a $3\times3$ mask would encompass a completely blank field. Since this is known to be the largest gap, the next (odd) mask size up is guaranteed to encompass some of the pixels in the segment. Thus, the smallest mask that will do the job is a $5 \times 5$ averaging mask.
 
+(b) The smallest average value produced by the mask is when it encompasses only two pixels of the segment. This average value is a grey-scale value, not binary, like the rest of the segment pixels. Denote the smallest average value by Amin, and the binary values of pixels in the thin segment by B. Clearly, is less than B. Then, setting the binarizing threshold slightly smaller will create one binary pixel of value B in the centre of the mask.
 
 
 
