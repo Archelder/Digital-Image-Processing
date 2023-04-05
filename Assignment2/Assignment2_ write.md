@@ -351,11 +351,23 @@ Therefore the size of the smallest averaging mask is $$q \times [\dfrac{10(Q-S)}
 
 **Answer:**
 
+It is given that the range of illumination stays in the linear portion of the camera response range, but no values for the range are given. The fact that images stay in the linear range implies that images will not be saturated at the high end or be driven in the low end to such an extent that the camera will not be able to respond, thus losing image information irretrievably. The only way to establish a benchmark value for illumination is when the variable (daylight) illumination is not present. Let $f_o(x,y)$ denote an image taken under artificial illumination only. with no moving objects (e.g., people or vehicles) in the scene. This becomes the standard by which all other images will be normalized. There are numerous ways to solve this problem, but the student must show awareness that areas in the image likely to change due to moving objects should be excluded from the illumination-correction approach.
 
+One way is to select various representative subareas of $f_o(x,y)$ not likely to be obscured by moving objects and compute their average intensities. We then select the minimum and maximum of all the individual average values, denoted by, $\bar{f}_{min}$ and $\bar{f}_{max}$. The objective then is to process any input image, $f(x,y)$, so that its minimum and maximum will be equal to $\bar{f}_{min}$ and $\bar{f}_{max}$​ , respectively. The easiest way to do this is with a linear transformation function of the form
+$$
+f_{out}(x,y) =a f(x,y)+b
+$$
+where $f_{out}$ is the scaled output image. It is easily verified that the output image will have the required minimum and maximum values if we choose
+$$
+a = \dfrac{\bar{f}_{max} - \bar{f}_{min}}{{f}_{max} - {f}_{min}}
+$$
+and
+$$
+b = \dfrac{\bar{f}_{min}{f}_{max} - {f}_{min}\bar{f}_{max}}{{f}_{max} - {f}_{min}}
+$$
+where $f_{max}$ and $f_{min}$are the maximum and minimum values of the input image.
 
-
-
-
+***
 
 <div STYLE="page-break-after: always;"></div>
 
