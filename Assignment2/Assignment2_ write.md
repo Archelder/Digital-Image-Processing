@@ -104,16 +104,16 @@ G(z)=
 $$
 
 $$
-\begin{array}{l}
-G(z) = r &=
+\begin{array}{ll}
+G(z) = r =
 \left\{\begin{array}{lc}
 2z^2, & 0 \le z \lt \dfrac{1}{2}\\
 -2z^2 + 4z -1, & \dfrac{1}{2} \le z \lt 1\\
 1, & 1 \le z
 \end{array}{}\right.\\
-
+\\
 \Rightarrow z =
-\left\{\begin{array}{lc}
+\left\{\begin{array}{ll}
 \left(\dfrac{2r-r^2}{2} \right)^\frac{1}{2}, & 0 \le r \lt 1-\dfrac{\sqrt2}{2}\\
 1+\dfrac{r-1}{\sqrt2}, & 1-\dfrac{\sqrt2}{2} \lt r \le1
 \end{array}{}\right.\\
