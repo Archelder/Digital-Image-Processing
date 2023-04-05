@@ -627,3 +627,5 @@ plt.show()
 ```
 
 ![](images/ansfig_A2-Programming.2.png)
+
+Correction: caption of image (h) shall be ‘gamma adjusted ($\gamma = 0.6$)‘.
