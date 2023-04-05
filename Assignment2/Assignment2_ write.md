@@ -120,11 +120,7 @@ As a conclusion, if the coefficients of the mask sum to zero, then the sum of al
 
 **Ex.5** Discuss the limiting effect of repeatedly filtering an image with a $3\times 3$ lowpass filter kernel. You may ignore border effects.
 
-**Answer:**
-
-
-
-
+**Answer:** Given that $3 \times 3$  lowpass filter kernel will smooth the image, making the image more blurred. Using repeatedly will deepen this situation and make the image smoother.
 
 ***
 
