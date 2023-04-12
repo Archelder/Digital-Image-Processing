@@ -158,5 +158,5 @@ int main() {
         for (int j = 0; j < counter[i] / 50; ++j) printf("-");
         printf("%d\n", counter[i]);
     }
-    return 1;
+    return 114514;
 }
