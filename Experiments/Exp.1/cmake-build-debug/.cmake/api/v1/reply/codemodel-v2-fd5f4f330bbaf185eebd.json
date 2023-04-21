@@ -27,7 +27,7 @@
 					[
 						0
 					],
-					"name" : "Exp_1",
+					"name" : "Project",
 					"targetIndexes" : 
 					[
 						0
@@ -38,9 +38,9 @@
 			[
 				{
 					"directoryIndex" : 0,
-					"id" : "Exp_1::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-Exp_1-Debug-9af1f63aa92a320f5d08.json",
-					"name" : "Exp_1",
+					"id" : "EXE::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-EXE-Debug-e63bdbf4056d3fb7b2fa.json",
+					"name" : "EXE",
 					"projectIndex" : 0
 				}
 			]

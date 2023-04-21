@@ -1,4 +1,11 @@
 # ninja log v5
-1	48	1682046139866194119	build.ninja	90986660d2c51d03
-0	52	1682046138375663382	CMakeFiles/Exp_1.dir/raw2bmp.c.o	d06167b3491d3044
-53	87	1682046138411425411	Exp_1	808c3f4bcb73c13f
+0	36	1682048437673561640	CMakeFiles/Project.dir/raw2bmp.c.o	fd1e3cbe3640330c
+24	53	1682047208800236815	Exp_1	808c3f4bcb73c13f
+1	40	1682047537676019730	/Users/kilo/Documents/GitHub/Digital-Image-Processing/Experiments/Exp.1/bin/Exp_1	a83fbb5ce92671cc
+0	70	1682048410207677670	CMakeFiles/Exp_111.dir/raw2bmp.c.o	5f5d068655c3bb29
+0	24	1682047208770551117	CMakeFiles/Exp_1.dir/raw2bmp.c.o	d06167b3491d3044
+0	40	1682048471430774387	build.ninja	90986660d2c51d03
+0	23	1682048469063709809	CMakeFiles/EXE.dir/raw2bmp.c.o	f2e37ca129b2c664
+23	52	1682048469093182803	/Users/kilo/Documents/GitHub/Digital-Image-Processing/Experiments/Exp.1/bin/EXE	fe60b0df398940c3
+0	25	1682048488455163596	CMakeFiles/EXE.dir/raw2bmp.c.o	f2e37ca129b2c664
+26	56	1682048488486716113	/Users/kilo/Documents/GitHub/Digital-Image-Processing/Experiments/Exp.1/bin/EXE	fe60b0df398940c3
