@@ -3,4 +3,4 @@ project(Exp_1 C)
 
 set(CMAKE_C_STANDARD 99)
 
-add_executable(Exp_1 codes/raw2bmp.c)
+add_executable(Exp_1 raw2bmp.c)

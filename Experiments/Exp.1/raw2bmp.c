@@ -149,7 +149,7 @@ int main() {
         }
     }
     free(raw);
-    printf("====== Histoogram ======\n"
+    printf("====== Histogram ======\n"
            "Intensity   |      Times\n"
            "––––––––––––––––––––––––\n");
 
@@ -160,3 +160,4 @@ int main() {
     }
     return 114514;
 }
+

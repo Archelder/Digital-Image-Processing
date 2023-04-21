@@ -49,11 +49,11 @@ cmake_ninja_workdir = /Users/kilo/Documents/GitHub/Digital-Image-Processing/Expe
 
 build cmake_object_order_depends_target_Exp_1: phony || CMakeFiles/Exp_1.dir
 
-build CMakeFiles/Exp_1.dir/codes/raw2bmp.c.o: C_COMPILER__Exp_1_Debug /Users/kilo/Documents/GitHub/Digital-Image-Processing/Experiments/Exp.1/codes/raw2bmp.c || cmake_object_order_depends_target_Exp_1
-  DEP_FILE = CMakeFiles/Exp_1.dir/codes/raw2bmp.c.o.d
+build CMakeFiles/Exp_1.dir/raw2bmp.c.o: C_COMPILER__Exp_1_Debug /Users/kilo/Documents/GitHub/Digital-Image-Processing/Experiments/Exp.1/raw2bmp.c || cmake_object_order_depends_target_Exp_1
+  DEP_FILE = CMakeFiles/Exp_1.dir/raw2bmp.c.o.d
   FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -fcolor-diagnostics -std=gnu99
   OBJECT_DIR = CMakeFiles/Exp_1.dir
-  OBJECT_FILE_DIR = CMakeFiles/Exp_1.dir/codes
+  OBJECT_FILE_DIR = CMakeFiles/Exp_1.dir
 
 
 # =============================================================================
@@ -63,7 +63,7 @@ build CMakeFiles/Exp_1.dir/codes/raw2bmp.c.o: C_COMPILER__Exp_1_Debug /Users/kil
 #############################################
 # Link the executable Exp_1
 
-build Exp_1: C_EXECUTABLE_LINKER__Exp_1_Debug CMakeFiles/Exp_1.dir/codes/raw2bmp.c.o
+build Exp_1: C_EXECUTABLE_LINKER__Exp_1_Debug CMakeFiles/Exp_1.dir/raw2bmp.c.o
   FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk
   OBJECT_DIR = CMakeFiles/Exp_1.dir
   POST_BUILD = :
