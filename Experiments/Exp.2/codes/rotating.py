@@ -12,9 +12,9 @@ rotated_img = []
 for i in range(3):
     rotated_img.append(cv2.warpAffine(original_img, rotation_matrix, (img_w, img_h), flags=interpolation[i]))
 
-fig, axs = plt.subplots(nrows=1, ncols=4, figsize=(10, 4), num="Rotitated")
+fig, axs = plt.subplots(nrows=2, ncols=2, figsize=(6.72, 8.64), num="Rotitated")
 fig.suptitle("Rotated Results", fontsize=15)
-axs[0].imshow(original_img, cmap='gray'), axs[0].axis('off'), axs[0].set_title(f"original")
+axs[0, 0].imshow(original_img, cmap='gray'), axs[0, 0].axis('off'), axs[0, 0].set_title(f"original")
 for i in range(3):
     ax = axs.flat[i + 1]
     ax.imshow(rotated_img[i], cmap='gray')
