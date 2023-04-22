@@ -9,13 +9,13 @@ resize_ratio = []
 for i in target_dpi:
     resize_ratio.append((i / ORIGINAL_DPI))
 
-target_img = []
+reduced_img = []
 for ratio in resize_ratio:
-    target_img.append(cv2.resize(original_img, dsize=None, fx=ratio, fy=ratio))
+    reduced_img.append(cv2.resize(original_img, dsize=None, fx=ratio, fy=ratio))
 
 plt.subplot(221), plt.imshow(original_img, cmap='gray'), plt.title("1250 dpi"), plt.axis('off')
 
 for i in range(3):
-    plt.subplot(222 + i), plt.imshow(target_img[i], cmap='gray'), plt.title(f"{target_dpi[i]} dpi"), plt.axis('off')
+    plt.subplot(222 + i), plt.imshow(reduced_img[i], cmap='gray'), plt.title(f"{target_dpi[i]} dpi"), plt.axis('off')
 
 plt.show()
