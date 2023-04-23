@@ -23,9 +23,10 @@ for levels in target_gray_levels:
     reduced_img.append(cv2.convertScaleAbs(original_img, alpha=alpha))
 
 # display the original image with 256 gray levels and the reduced images with the specified number of gray levels
+plt.subplots(2, 4, figsize=(14.4, 8.64))
 plt.subplot(241), plt.imshow(original_img, cmap='gray'), plt.title("256 levels"), plt.axis('off')
 for i in range(7):
     plt.subplot(242 + i), plt.imshow(reduced_img[i], cmap='gray'), \
         plt.title(f"{target_gray_levels[i]} levels"), plt.axis('off')
-
+plt.suptitle("Intensity Under-sampling", fontsize=20)
 plt.show()
