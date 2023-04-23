@@ -24,57 +24,57 @@ for ratio in resize_ratio:
     reduced_img.append(cv2.resize(original_img, dsize=None, fx=ratio, fy=ratio))
 
 # create a figure with subplots to display the original image and the reduced images side-by-side
-fig, axs = plt.subplots(nrows=2, ncols=2, figsize=(8, 8), num="Spatial Under-sampling")
+fig, axs = plt.subplots(nrows=2, ncols=2, figsize=(8, 10), num="Spatial Under-sampling")
 fig.suptitle("Spatial Under-sampling", fontsize=15)
 
 # display the original image in the first subplot
-axs[0, 0].imshow(original_img, cmap='gray')
-axs[0, 0].axis('off')
-axs[0, 0].set_title(f"{ORIGINAL_DPI} dpi")
+ax = axs[0, 0]
+ax.imshow(original_img, cmap='gray')
+ax.set_title(f"{ORIGINAL_DPI} dpi")
+ax.set_xticks([])
+ax.set_yticks([])
 
 # display each reduced image in a separate subplot
-i = 0
-for ax in axs.flat[1:]:
+for i in range(3):
+    ax = axs.flat[i + 1]
     ax.imshow(reduced_img[i], cmap='gray')
     ax.set_title(f"{target_dpi[i]} dpi")
-    ax.axis('off')
-    i += 1
-del i
+    ax.set_xticks([])
+    ax.set_yticks([])
 
-# create a list to store the cropped images
-cropped_img = []
-zoomed_img = []
+# define the coordinates of the region of interest to be cropped
+top = int(img_h * 3 / 5)
+bottom = int(img_h * 0.9)
+left = int(img_w * 3 / 5)
+right = int(img_w * 0.9)
 
-# define the coordinates of the region of interest to be cropped (the center half of the image)
-top = img_h // 4
-bottom = img_h // 2
-left = img_w // 4
-right = img_w // 2
-
-# perform the same cropping and downsizing on each image, and save the resulting images in lists
+cropped_img = [original_img[top:bottom, left:right]]
 for img in reduced_img:
-    zoomed_img.append(cv2.resize(img, dsize=(img_w, img_h)))
-cropped_img.append(original_img[top:bottom, left:right])
-for img in zoomed_img:
+    h, w = img.shape[:2]
+    top = int(h * 3 / 5)
+    bottom = int(h * 0.9)
+    left = int(w * 3 / 5)
+    right = int(w * 0.9)
     cropped_img.append(img[top:bottom, left:right])
 
 # create a second figure with subplots to display the cropped images side-by-side
-fig, axs = plt.subplots(nrows=2, ncols=2, figsize=(8, 8), num="Spatial Under-sampling (zoom)")
+fig, axs = plt.subplots(nrows=2, ncols=2, figsize=(8, 10), num="Spatial Under-sampling (zoom)")
 fig.suptitle("Spatial Under-sampling (zoom)", fontsize=15)
 
 # display the original cropped image in the first subplot
-axs[0, 0].imshow(cropped_img[0], cmap='gray')
-axs[0, 0].axis('off')
-axs[0, 0].set_title(f"{ORIGINAL_DPI} dpi")
+ax = axs[0, 0]
+ax.imshow(cropped_img[0], cmap='gray')
+ax.set_title(f"{ORIGINAL_DPI} dpi")
+ax.set_xticks([])
+ax.set_yticks([])
 
 # display each cropped and reduced image in a separate subplot
-i = 0
-for ax in axs.flat[1:]:
-    ax.imshow(cropped_img[i], cmap='gray')
+for i in range(3):
+    ax = axs.flat[1 + i]
+    ax.imshow(cropped_img[i + 1], cmap='gray')
     ax.set_title(f"{target_dpi[i]} dpi")
-    ax.axis('off')
-    i += 1
-del i
+    ax.set_xticks([])
+    ax.set_yticks([])
 
 # adjust the spacing between subplots and display the figures
 plt.tight_layout()
