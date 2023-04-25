@@ -40,7 +40,7 @@ for img in rotated_img:
 
 # display the cropped images with their respective interpolation methods
 fig, axs = plt.subplots(nrows=1, ncols=3, figsize=(8, 4), num="Rotitated (zoom)")
-fig.suptitle("Rotated Results", fontsize=15)
+fig.suptitle("Rotated Results (zoom)", fontsize=15)
 for i in range(3):
     ax = axs.flat[i]
     ax.imshow(cropped_img[i], cmap='gray')
