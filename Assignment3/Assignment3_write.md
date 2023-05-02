@@ -171,7 +171,7 @@ h(-x,-y)\Longleftrightarrow H^* (u,v)
 $$
 So we get
 $$
-h(-x,-y)×(-1)^{x+y}=f(-x,-y)·(-1)^{-(x+y)}·(-1)^{x+y}=f(-x,-y)
+h(-x,-y)×(-1)^{x+y}=f(-x,-y)\cdot(-1)^{-(x+y)}\cdot(-1)^{x+y}=f(-x,-y)
 $$
 Therefore, the phenomenon shown in the figure will occur
 
@@ -189,7 +189,7 @@ The result of Fourier transform on $f(u,v)$ is : $F(u,v)$,
 
 Filter the image by once, we can get $T(x,y)=H(u,v)·F(u,v)=e^{-\frac{D^2(u,v)}{2D^2_0}}·F(u,v)$
 
-Filter the image by K times,we can get $G(x,y) =[H(u,v)]^k·F(u,v)=e^{-\frac{KD^2(u,v)}{2D^2_0}}·F(u,v)$
+Filter the image by K times,we can get $G(x,y) =[H(u,v)]^k \cdot F(u,v)=e^{-\frac{KD^2(u,v)}{2D^2_0}}·F(u,v)$
 
 Predict: $K$ in enough, when $K→∞$,  so we can only remain $F(0,0)$ by Gaussian Filter Expression,
 
