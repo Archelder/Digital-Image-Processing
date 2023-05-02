@@ -109,7 +109,68 @@ $$
 
 
 
+```python
+import cv2
+import numpy as np
+import matplotlib.pyplot as plt
 
+
+def butterHP(D, n, shape):
+    """
+    :param D: cutoff frequency
+    :param n: order
+    :param shape: (rows, columns)
+    :return: array H with the same shape
+    """
+    H = np.zeros(shape, dtype=np.float64)
+    row_c, col_c = np.floor(shape[0] / 2), np.floor(shape[1] / 2)
+    for u in range(shape[0]):
+        for v in range(shape[1]):
+            d = np.sqrt(((u - row_c) ** 2) + ((v - col_c) ** 2))
+            H[u, v] = 1 / (1 + np.power(D / (0.00000000001 + d), 2 * n))
+    return H
+
+
+# read the original image
+original_img = cv2.imread("../images/Fig0457(a)(thumb_print).png", flags=0)
+
+# calculate the 2D DFT of the original image using `np.fft.fft2()`
+original_frq = np.fft.fft2(original_img)
+
+# centralize DFT
+centred_original_frq = np.fft.fftshift(original_frq)
+
+# construct a Butterworth Highpass Filter
+BHPF = butterHP(D=25, n=4, shape=original_img.shape)
+
+# apply the Butterworth Highpass Filter
+centred_filtered_frq = centred_original_frq * BHPF
+
+# inverse the 2D DFT
+filtered_frq = np.fft.ifftshift(centred_filtered_frq)
+filtered_img = np.real(np.fft.ifft2(filtered_frq))
+filtered_img_cutoff = filtered_img.copy()
+filtered_img_cutoff[filtered_img_cutoff < 0] = 0
+
+# threshold the filtered image setting negative values to 0, positive values to 1
+threshold_img = filtered_img.copy()
+threshold_img[threshold_img < 0] = 0
+threshold_img[threshold_img > 0] = 1
+
+# display the results
+plt.figure("Butterworth Highpass Filtering", (12, 4))
+plt.subplot(141), plt.imshow(original_img, 'gray'), plt.title("original"), plt.axis('off')
+plt.subplot(142), plt.imshow(filtered_img_cutoff, 'gray'), plt.title("filtered (unnormalized)"), plt.axis('off')
+plt.subplot(143), plt.imshow(filtered_img, 'gray'), plt.title("filtered (normalized)"), plt.axis('off')
+plt.subplot(144), plt.imshow(threshold_img, 'gray'), plt.title("filtered (thresholded)"), plt.axis('off')
+plt.suptitle(f"Running Results of Example 4.19 Butterworth Highpass Filtering")
+
+plt.tight_layout()
+plt.show()
+
+```
+
+![](images/Butterworth_Highpass_Filtering.png)
 
 ***
 
@@ -119,9 +180,58 @@ $$
 
 (*followed by  **Matlab live Scripts**  or **Jupyter Scripts** and running results*)
 
+```python
+import cv2
+import numpy
+import matplotlib.pyplot as plt
 
+original_image = cv2.imread("../images/Fig0459(a)(orig_chest_xray).png", flags=0)
 
+# FFT and shift
+original_frq = numpy.fft.fft2(original_image)
+centred_original_frq = numpy.fft.fftshift(original_frq)
 
+# construct a Gaussian Highpass Filter
+rows, cols = original_image.shape  # rows cols分别得到图像的行数和列数
+row_centre, col_centre = rows // 2, cols // 2  # 得到图像中心点的坐标（crow，cols）
+D0 = 70
+GHPF = numpy.zeros((rows, cols))
+for u in range(rows):
+    for v in range(cols):
+        D2 = (u - row_centre) ** 2 + (v - col_centre) ** 2
+        GHPF[u, v] = 1 - numpy.exp(-D2 / (2 * D0 * D0))
+
+centred_filtered_frq = centred_original_frq * GHPF
+filtered_frq = numpy.fft.ifftshift(centred_filtered_frq)
+filtered_img = numpy.real(numpy.fft.ifft2(filtered_frq))
+
+# high-frequency-emphasis filtering using the same filter
+k1 = 0.5
+k2 = 0.75
+centred_enhanced_filtered_freq = numpy.zeros((rows, cols), dtype=numpy.complex128)
+for u in range(rows):
+    for v in range(cols):
+        centred_enhanced_filtered_freq[u, v] = (k1 + k2 * GHPF[u, v]) * centred_original_frq[u, v]
+enhanced_filtered_frq = numpy.fft.ifftshift(centred_enhanced_filtered_freq)
+enhanced_filtered_img = numpy.real(numpy.fft.ifft2(enhanced_filtered_frq))
+
+# performing histogram equalization
+equalized_img = cv2.equalizeHist(enhanced_filtered_img.astype(numpy.uint8))
+
+# display the results
+plt.figure("High-Frequency-Emphasis Filtering", (8, 8))
+plt.subplot(221), plt.imshow(original_image, 'gray'), plt.title("original"), plt.axis('off')
+plt.subplot(222), plt.imshow(filtered_img, 'gray'), plt.title("filtered"), plt.axis('off')
+plt.subplot(223), plt.imshow(enhanced_filtered_img, 'gray'), plt.title("enhanced filtered"), plt.axis('off')
+plt.subplot(224), plt.imshow(equalized_img, 'gray'), plt.title("equalized"), plt.axis('off')
+plt.suptitle(f"Running Results of Example 4.21 High-Frequency-Emphasis Filtering")
+
+plt.tight_layout()
+plt.show()
+
+```
+
+![](images/High-Frequency-Emphasis Filtering.png)
 
 ***
 
@@ -131,9 +241,60 @@ $$
 
 (*followed by  **Matlab live Scripts**  or **Jupyter Scripts** and running results*)
 
+```python
+import cv2
+import numpy as np
+import matplotlib.pyplot as plt
 
 
+def homo_filter(gamma_L, gamma_H, c, D, shape):
+    H = np.zeros(shape, dtype=np.float64)
+    row_c, col_c = np.floor(shape[0] / 2), np.floor(shape[1] / 2)
+    D_sqr = D ** 2
+    for u in range(shape[0]):
+        for v in range(shape[1]):
+            d_sqr = ((u - row_c) ** 2) + ((v - col_c) ** 2)
+            H[u, v] = ((gamma_H - gamma_L) * (1 - np.exp(-c * d_sqr / D_sqr))) + gamma_L
+    return H
 
+
+# define constants
+GAMMA_L = 0.4
+GAMMA_H = 3.0
+SLOPE = 5
+CUTOFF_FREQUENCY = 20
+
+# read the original image
+original_img = cv2.imread("../images/Fig0462(a)(PET_image).png", flags=0)
+
+# calculate the 2D DFT of the original image using `np.fft.fft2()`
+original_frq = np.fft.fft2(original_img)
+
+# centralize DFT
+centred_original_frq = np.fft.fftshift(original_frq)
+
+# construct a Homomorphic Filter
+HF = homo_filter(GAMMA_L, GAMMA_H, c=SLOPE, D=CUTOFF_FREQUENCY, shape=original_img.shape)
+
+# apply the Homomorphic Filter
+centred_filtered_frq = centred_original_frq * HF
+
+# inverse the 2D DFT
+filtered_frq = np.fft.ifftshift(centred_filtered_frq)
+filtered_img = np.real(np.fft.ifft2(filtered_frq))
+
+# display the results
+plt.figure("Homomorphic Filtering", (8, 8))
+plt.subplot(121), plt.imshow(original_img, 'gray'), plt.title("original"), plt.axis('off')
+plt.subplot(122), plt.imshow(filtered_img, 'gray'), plt.title("filtered"), plt.axis('off')
+plt.suptitle(f"Running Results of Example 4.22 Homomorphic Filtering")
+
+plt.tight_layout()
+plt.show()
+
+```
+
+![](images/Homomorphic Filtering.png)
 
 ***
 
@@ -143,3 +304,71 @@ $$
 
 (*followed by  **Matlab live Scripts**  or **Jupyter Scripts** and running results*)
 
+```python
+import cv2
+import numpy as np
+import matplotlib.pyplot as plt
+
+
+def butter_notch_reject(Q, u_list, v_list, D_list, n, shape):
+    M, N = shape
+    row_c, col_c = np.floor(M / 2), np.floor(N / 2)
+    H_NR = np.ones(shape, dtype=np.float64)
+    for k in range(Q):
+        H = np.zeros(shape, dtype=np.float64)
+        H_1 = np.zeros(shape, dtype=np.float64)
+        H_2 = np.zeros(shape, dtype=np.float64)
+        for u in range(M):
+            for v in range(N):
+                d_1 = np.sqrt((u - row_c - u_list[k]) ** 2 + (v - col_c - v_list[k]) ** 2)
+                d_2 = np.sqrt((u - row_c + u_list[k]) ** 2 + (v - col_c + v_list[k]) ** 2)
+                H_1[u, v] = 1 / (1 + np.power(D_list[k] / (0.00000000001 + d_1), 2 * n))
+                H_2[u, v] = 1 / (1 + np.power(D_list[k] / (0.00000000001 + d_2), 2 * n))
+        H = H_1 * H_2
+        H_NR *= H
+    return H_NR
+
+
+# read the original image
+original_img = cv2.imread("../images/Fig0464(a)(car_75DPI_Moire).png", flags=0)
+
+# calculate the 2D DFT of the original image
+original_frq = np.fft.fft2(original_img)
+centred_original_frq = np.fft.fftshift(original_frq)
+
+original_spectrum = np.abs(centred_original_frq)
+log_spectrum = np.log(original_spectrum)
+
+xs = [55, 55, 57, 58]
+ys = [44, 86, 166, 207]
+u = []
+v = []
+row_c, col_c = np.floor(original_img.shape[0] / 2), np.floor(original_img.shape[1] / 2)
+for x in xs:
+    v.append(col_c - x)
+for y in ys:
+    u.append(row_c - y)
+
+D = [9 for i in range(4)]
+BNRF = butter_notch_reject(4, u, v, D, n=4, shape=original_img.shape)
+centred_filtered_frq = centred_original_frq * BNRF
+filtered_spectrum = log_spectrum * BNRF
+log_filtered_spectrum = np.log(filtered_spectrum)
+
+# inverse the 2D DFT
+filtered_frq = np.fft.ifftshift(centred_filtered_frq)
+filtered_img = np.real(np.fft.ifft2(filtered_frq))
+
+# display the results
+plt.figure("Notch Reject Filtering", (6, 8))
+plt.subplot(221), plt.imshow(original_img, 'gray'), plt.title("original image"), plt.axis('off')
+plt.subplot(222), plt.imshow(log_spectrum, 'gray'), plt.title("original spectrum"), plt.axis('off')
+plt.subplot(223), plt.imshow(filtered_spectrum, 'gray'), plt.title("filtered spectrum"), plt.axis('off')
+plt.subplot(224), plt.imshow(filtered_img, 'gray'), plt.title("filtered image"), plt.axis('off')
+
+plt.tight_layout()
+plt.show()
+
+```
+
+![](images/Notch_Reject_Filtering.png)
