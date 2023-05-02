@@ -163,7 +163,9 @@ Then there is
 $$
 h(x,y)\Longleftrightarrow H(u,v)
 $$
-And because h(x,y) is a real function(This is given by the symmetry of the DFT)
+And because h(x,y) is a real function
+
+(This is given by the symmetry of the DFT)
 $$
 h(-x,-y)\Longleftrightarrow H^* (u,v)
 $$
