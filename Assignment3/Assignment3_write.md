@@ -176,6 +176,41 @@ Therefore, the phenomenon shown in the figure will occur
 
 **Answer:**
 
+$(a)$ By Gaussian filter Expression: $H(u,v)=e^{-\frac{D^2(u,v)}{2D^2_0}}$,
+
+We assume that the original image is : $f(u,v)$, 
+
+The result of Fourier transform on $f(u,v)$ is : $F(u,v)$,
+
+Filter the image by once, we can get $T(x,y)=H(u,v)·F(u,v)=e^{-\frac{D^2(u,v)}{2D^2_0}}·F(u,v)$
+
+Filter the image by K times,we can get $G(x,y) =[H(u,v)]^k·F(u,v)=e^{-\frac{KD^2(u,v)}{2D^2_0}}·F(u,v)$
+
+Predict: $K$ in enough, when $K→∞$,  so we can only remain $F(0,0)$ by Gaussian Filter Expression,
+
+and its size is the average size of the entire image.
+
+$(b)$ by prediction in $(a)$, $K→∞$, $G(x,y) =[H(u,v)]^k·F(u,v)=e^{-\frac{KD^2(u,v)}{2D^2_0}}·F(u,v)$ 
+$$
+G(u,v)=
+\begin{cases}
+1,\ \ \ \ (u,v)=(0,0)\\
+0,\ \ \ \ \ else\\
+\end{cases}
+$$
+due to Cmin is the smallest pozition number representable in the machine,
+
+When $e^{-\frac{KD^2(u,v)}{2D^2_0}} < 0.5 Cmin$ ,we can get $G(u,v)= 0$ 
+$$
+\begin{align}
+&e^{-\frac{KD^2(u,v)}{2D^2_0}} < 0.5 Cmin\\
+&⇒K>{\frac{-2D^2_0ln(0.5Cmin)}{D^(u,v)}}\\
+&⇒K_{min}=[\frac{-2D^2_0ln(0.5Cmin)}{D^(u,v)}]_{min}\\
+&=\frac{-2D^2_0ln(0.5Cmin)}{1}\\
+&=-2D^2_0ln(0.5Cmin)
+\end{align}
+$$
+
 
 
 <div STYLE="page-break-after: always;"></div>
