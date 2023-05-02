@@ -18,3 +18,4 @@ for u in range(rows):
         D2 = (u - row_centre) ** 2 + (v - col_centre) ** 2
         GHPF[u, v] = 1 - numpy.exp(-D2 / (2 * D0 * D0))
 plt.imshow(GHPF,'gray')
+plt.show()
