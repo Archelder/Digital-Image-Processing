@@ -5,9 +5,9 @@ import matplotlib.pyplot as plt
 
 def butterHP(D, n, shape):
     """
-    :param D: cutoff frequancy
+    :param D: cutoff frequency
     :param n: order
-    :param shape: (rows, colums)
+    :param shape: (rows, columns)
     :return: array H with the same shape
     """
     H = np.zeros(shape, dtype=np.float64)
@@ -22,7 +22,7 @@ def butterHP(D, n, shape):
 # read the original image
 original_img = cv2.imread("../images/Fig0457(a)(thumb_print).png", flags=0)
 
-# calculate the 2D DFT of the orginal image using `np.fft.fft2()`
+# calculate the 2D DFT of the original image using `np.fft.fft2()`
 original_frq = np.fft.fft2(original_img)
 
 # centralize DFT
