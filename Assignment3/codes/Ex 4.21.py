@@ -40,7 +40,7 @@ plt.figure("High-Frequency-Emphasis Filtering", (8, 8))
 plt.subplot(221), plt.imshow(original_image, 'gray'), plt.title("original"), plt.axis('off')
 plt.subplot(222), plt.imshow(filtered_img, 'gray'), plt.title("filtered"), plt.axis('off')
 plt.subplot(223), plt.imshow(enhanced_filtered_img, 'gray'), plt.title("enhanced filtered"), plt.axis('off')
-plt.subplot(224), plt.imshow(equalized_img, 'gray'), plt.title("equalized)"), plt.axis('off')
+plt.subplot(224), plt.imshow(equalized_img, 'gray'), plt.title("equalized"), plt.axis('off')
 plt.suptitle(f"Running Results of Example 4.21 High-Frequency-Emphasis Filtering")
 
 plt.tight_layout()
