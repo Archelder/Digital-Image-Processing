@@ -12,7 +12,7 @@
 
 **Answer:**
 
-Taking the horizontal direction as an example, we can know that the period of a checkerboard image is equal to T＝1mm by viewing two squares, one black and one white, as a period. According to Nyquist sampling theorem, a period has at least two sampling points. Therefore,to avoid aliasing the minimum sampling rate is 2/T samples/mm=2 samples/mm.
+Taking the horizontal direction as an example, we can know that the period of a checkerboard image is equal to $T＝1$ mm by viewing two squares, one black and one white, as a period. According to Nyquist sampling theorem, a period has at least two sampling points. Therefore,to avoid aliasing the minimum sampling rate is $\frac{2}{T}$ (samples/mm)=$2 $(samples/mm).
 
 
 
@@ -27,13 +27,13 @@ Taking the horizontal direction as an example, we can know that the period of a 
 </center>
 **Answer:**
 
-It is known that complementing 0 for an image f (x,y) of size A×B is to prevent errors caused by multiplying h (x,y) of size C×D with f (x,y) of the previous period when convolution is flipped, so it is necessary to complement the image size to (A+C,B+D) to ensure sufficient space for convolution. For this problem, Take a one-dimensional function as an example, let the period of m (x,y) be M, the period of t (x,y) be T, and the period after taking the complement of 0 be M+T
+It is known that complementing 0 for an image $f (x,y)$ of size $A×B$ is to prevent errors caused by multiplying $h(x,y)$ of size $C×D$ with $f (x,y)$ of the previous period when convolution is flipped, so it is necessary to complement the image size to $(A+C,B+D)$ to ensure sufficient space for convolution. For this problem, Take a one-dimensional function as an example, let the period of $m(x,y)$ be $M$, the period of $t(x,y)$ be $T$, and the period after taking the complement of $0$ be $M+T$
 
-As shown in the figure, if you fill the end with 0, you can leave M+T space for the convolution
+As shown in the figure, if you fill the end with 0, you can leave $M+T$ space for the convolution
 
 ![](images/作业3图1.jpg)
 
-If 0 is filled on both sides, the resulting image is the same as that obtained by filling 0 at the end, leaving a space of size M+T to satisfy the convolution condition
+If 0 is filled on both sides, the resulting image is the same as that obtained by filling 0 at the end, leaving a space of size $M+T$ to satisfy the convolution condition
 
 ![](images/作业3图2.jpg)
 
@@ -64,7 +64,7 @@ $$
 $$
 By the property of the Fourier transform
 $$
-∇^2 f(t,z)<=>(j2πu)^2 F(u,v)+(j2πv)^2 F(u,v)
+∇^2 f(t,z)\Longleftrightarrow(j2πu)^2 F(u,v)+(j2πv)^2 F(u,v)
 $$
 
 $$
@@ -115,21 +115,24 @@ $$
 
 **Answer:**
 
-(a) Let's say
+(a) Let's assume
 $$
 t(x,y)=f(x+1,y)+f(x-1,y)+f(x,y-1)+f(x,y+1)-φf(x,y)
 $$
-It's given by the Fourier transform
+It's given by the Fourier transfor
 $$
-T(u,v)=f(u,v)(e^(j2πu/M)+e^(-j2πu/M)+e^(j2πv/N)+e^(-j2πv/N)-φ)=F(u,v)∙H(u,v)
+\begin{align}
+&T(u,v)=F(u,v)(e^{\frac{j2πu}{M}}+e^{\frac{-j2πu}{M}}+e^{\frac{j2πv}{N}}+e^{\frac{-j2πv}{N}}-φ)\\
+&=F(u,v)·H(u,v)
+\end{align}
 $$
 So we can get
 $$
-H(u,v)=(e^(j2πu/M)+e^(-j2πu/M)+e^(j2πv/N)+e^(-j2πv/N)-φ)
+H(u,v)=(e^{\frac{j2πu}{M}}+e^{\frac{-j2πu}{M}}+e^{\frac{j2πv}{N}}+e^{\frac{-j2πv}{N}}-φ)
 $$
 It's given by Euler's formula
 $$
-2[cos⁡(2πu/M)+cos⁡(2πv/N)-2]
+2[cos⁡(\frac{2πu}{M})+cos⁡(\frac{2πv}{N})-2]
 $$
 (b) You can sketch the filter roughly, using the u direction as an example
 
@@ -152,21 +155,21 @@ Therefore, the same conclusion can be obtained in the v direction, and it can be
 
 **Answer:**
 
-Let's say
+Let's assume
 $$
-h(x,y)=f(x,y)×(-1)^(x+y)
+h(x,y)=f(x,y)×(-1)^{x+y}
 $$
 Then there is
 $$
-h(x,y)<=>H(u,v)
+h(x,y)\Longleftrightarrow H(u,v)
 $$
 And because h(x,y) is a real function(This is given by the symmetry of the DFT)
 $$
-h(-x,-y)<=>H^* (u,v)
+h(-x,-y)\Longleftrightarrow H^* (u,v)
 $$
 So we get
 $$
-h(-x,-y)×(-1)^(x+y)=f(-x,-y)∙(-1)^(-(x+y) )∙(-1)^(x+y)=f(-x,-y)
+h(-x,-y)×(-1)^{x+y}=f(-x,-y)·(-1)^{-(x+y)}·(-1)^{x+y}=f(-x,-y)
 $$
 Therefore, the phenomenon shown in the figure will occur
 
@@ -210,8 +213,6 @@ $$
 &=-2D^2_0ln(0.5Cmin)
 \end{align}
 $$
-
-
 
 <div STYLE="page-break-after: always;"></div>
 
