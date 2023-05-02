@@ -5,9 +5,9 @@ import matplotlib.pyplot as plt
 
 def butterHP(D, n, shape):
     """
-    :param D: cutoff frequancy
+    :param D: cutoff frequency
     :param n: order
-    :param shape: (rows, colums)
+    :param shape: (rows, columns)
     :return: array H with the same shape
     """
     H = np.zeros(shape, dtype=np.float64)
@@ -22,7 +22,7 @@ def butterHP(D, n, shape):
 # read the original image
 original_img = cv2.imread("../images/Fig0457(a)(thumb_print).png", flags=0)
 
-# calculate the 2D DFT of the orginal image using `np.fft.fft2()`
+# calculate the 2D DFT of the original image using `np.fft.fft2()`
 original_frq = np.fft.fft2(original_img)
 
 # centralize DFT
@@ -31,13 +31,16 @@ centred_original_frq = np.fft.fftshift(original_frq)
 # construct a Butterworth Highpass Filter
 BHPF = butterHP(D=25, n=4, shape=original_img.shape)
 
+# apply the Butterworth Highpass Filter
 centred_filtered_frq = centred_original_frq * BHPF
+
+# inverse the 2D DFT
 filtered_frq = np.fft.ifftshift(centred_filtered_frq)
 filtered_img = np.real(np.fft.ifft2(filtered_frq))
 filtered_img_cutoff = filtered_img.copy()
 filtered_img_cutoff[filtered_img_cutoff < 0] = 0
 
-# threshold the filterd image setting negtive values to 0, positive values to 1
+# threshold the filtered image setting negative values to 0, positive values to 1
 threshold_img = filtered_img.copy()
 threshold_img[threshold_img < 0] = 0
 threshold_img[threshold_img > 0] = 1
