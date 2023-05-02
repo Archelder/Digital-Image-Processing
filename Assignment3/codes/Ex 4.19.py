@@ -37,7 +37,7 @@ filtered_img = np.real(np.fft.ifft2(filtered_frq))
 filtered_img_cutoff = filtered_img.copy()
 filtered_img_cutoff[filtered_img_cutoff < 0] = 0
 
-# threshold the filterd image setting negtive values to 0, positive values to 1
+# threshold the filtered image setting negative values to 0, positive values to 1
 threshold_img = filtered_img.copy()
 threshold_img[threshold_img < 0] = 0
 threshold_img[threshold_img > 0] = 1
