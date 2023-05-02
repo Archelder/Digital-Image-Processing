@@ -39,5 +39,11 @@ centred_filtered_frq = centred_original_frq * HF
 filtered_frq = np.fft.ifftshift(centred_filtered_frq)
 filtered_img = np.real(np.fft.ifft2(filtered_frq))
 
-plt.imshow(filtered_img, 'gray')
+# display the results
+plt.figure("Homomorphic Filtering", (8, 8))
+plt.subplot(121), plt.imshow(original_img, 'gray'), plt.title("original"), plt.axis('off')
+plt.subplot(122), plt.imshow(filtered_img, 'gray'), plt.title("filtered"), plt.axis('off')
+plt.suptitle(f"Running Results of Example 4.22 Homomorphic Filtering")
+
+plt.tight_layout()
 plt.show()
