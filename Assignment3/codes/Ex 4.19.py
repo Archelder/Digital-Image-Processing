@@ -31,7 +31,10 @@ centred_original_frq = np.fft.fftshift(original_frq)
 # construct a Butterworth Highpass Filter
 BHPF = butterHP(D=25, n=4, shape=original_img.shape)
 
+# apply the Butterworth Highpass Filter
 centred_filtered_frq = centred_original_frq * BHPF
+
+# inverse the 2D DFT
 filtered_frq = np.fft.ifftshift(centred_filtered_frq)
 filtered_img = np.real(np.fft.ifft2(filtered_frq))
 filtered_img_cutoff = filtered_img.copy()
