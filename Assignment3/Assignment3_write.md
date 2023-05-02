@@ -12,7 +12,7 @@
 
 **Answer:**
 
-
+Taking the horizontal direction as an example, we can know that the period of a checkerboard image is equal to T＝1mm by viewing two squares, one black and one white, as a period. According to Nyquist sampling theorem, a period has at least two sampling points. Therefore,to avoid aliasing the minimum sampling rate is 2/T samples/mm=2 samples/mm.
 
 
 
@@ -25,12 +25,19 @@
 &nbsp
 <img src="./images/FigP0421(b).png" alt="Pro 4.21(b)" style="zoom:60%">
 </center>
-
 **Answer:**
 
+It is known that complementing 0 for an image f (x,y) of size A×B is to prevent errors caused by multiplying h (x,y) of size C×D with f (x,y) of the previous period when convolution is flipped, so it is necessary to complement the image size to (A+C,B+D) to ensure sufficient space for convolution. For this problem, Take a one-dimensional function as an example, let the period of m (x,y) be M, the period of t (x,y) be T, and the period after taking the complement of 0 be M+T
 
+As shown in the figure, if you fill the end with 0, you can leave M+T space for the convolution
 
+![](images/作业3图1.jpg)
 
+If 0 is filled on both sides, the resulting image is the same as that obtained by filling 0 at the end, leaving a space of size M+T to satisfy the convolution condition
+
+![](images/作业3图2.jpg)
+
+So expanding to two dimensions and using different kinds of padding gives you the same result
 
 ***
 
@@ -51,9 +58,50 @@ for $u=0,1,2,\dots, M-1$ and $v=0,1,2,\dots, N-1$. Explain how you would impleme
 
 **Answer:**
 
+(a) We know that the definition of the Laplace operator is
+$$
+∇^2 f(t,z)=∂^2 f(t,z)/∂t^2 +∂^2 (t,z)/∂z^2
+$$
+By the property of the Fourier transform
+$$
+∇^2 f(t,z)<=>(j2πu)^2 F(u,v)+(j2πv)^2 F(u,v)
+$$
 
+$$
+=-4π^2 (u^2+v^2 )F(u,v)=H(u,v)F(u,v)
+$$
 
+(b) The filter can be taken points and discretized
+$$
+H_0 (u,v)=-4π^2 (u^2+v^2 )
+$$
 
+$$
+u=0,1,2…M-1
+$$
+
+$$
+v=0,1,2…N-1
+$$
+
+Then the filter is centralized
+$$
+H_1 (u,v)=H_0 (u-M/2,v-N/2)
+$$
+
+$$
+∇^2 f(t,z)=H_1 (u,v)∙F(u,v)
+$$
+
+$$
+u=0,1,2…M-1
+$$
+
+$$
+v=0,1,2…N-1
+$$
+
+(c) Because the Laplacian operator in the frequency domain is similar to the spatial template with a center coefficient of -8, it also has a sharpening effect in the diagonal direction, so it is different from the spatial template with a center coefficient of -4
 
 ***
 
@@ -67,7 +115,27 @@ $$
 
 **Answer:**
 
+(a) Let's say
+$$
+t(x,y)=f(x+1,y)+f(x-1,y)+f(x,y-1)+f(x,y+1)-φf(x,y)
+$$
+It's given by the Fourier transform
+$$
+T(u,v)=f(u,v)(e^(j2πu/M)+e^(-j2πu/M)+e^(j2πv/N)+e^(-j2πv/N)-φ)=F(u,v)∙H(u,v)
+$$
+So we can get
+$$
+H(u,v)=(e^(j2πu/M)+e^(-j2πu/M)+e^(j2πv/N)+e^(-j2πv/N)-φ)
+$$
+It's given by Euler's formula
+$$
+2[cos⁡(2πu/M)+cos⁡(2πv/N)-2]
+$$
+(b) You can sketch the filter roughly, using the u direction as an example
 
+![](images/作业3图三.jpg)
+
+Therefore, the same conclusion can be obtained in the v direction, and it can be seen that the filter conforms to the high-pass filter
 
 
 
@@ -84,7 +152,23 @@ $$
 
 **Answer:**
 
-
+Let's say
+$$
+h(x,y)=f(x,y)×(-1)^(x+y)
+$$
+Then there is
+$$
+h(x,y)<=>H(u,v)
+$$
+And because h(x,y) is a real function(This is given by the symmetry of the DFT)
+$$
+h(-x,-y)<=>H^* (u,v)
+$$
+So we get
+$$
+h(-x,-y)×(-1)^(x+y)=f(-x,-y)∙(-1)^(-(x+y) )∙(-1)^(x+y)=f(-x,-y)
+$$
+Therefore, the phenomenon shown in the figure will occur
 
 **Ex 4.37**  Given an image of size $M\times N$ you are asked to perform an experiment that consists of repeatedly lowpass filtering the image using a Gaussian lowpass filter with a given cutoff frequency $D_0$. You may ignore computational round-off errors. Let $c_{min}$ denote the smallest positive number representable in the machine in which the proposed experiment will be conducted.
 (**a**) Let $K$ denote the number of applications of the filter. Can you predict (without doing the experiment) what the result (image) will be for a sufficiently large value of $K$? If so, what is that result?
