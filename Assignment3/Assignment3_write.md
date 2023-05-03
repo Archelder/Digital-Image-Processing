@@ -90,7 +90,7 @@ H_1 (u,v)=H_0 (u-M/2,v-N/2)
 $$
 
 $$
-∇^2 f(t,z)=H_1 (u,v)∙F(u,v)
+∇^2 f(t,z)\Longleftrightarrow H_1 (u,v)F(u,v)
 $$
 
 $$
@@ -117,22 +117,23 @@ $$
 
 (a) Let's assume
 $$
-t(x,y)=f(x+1,y)+f(x-1,y)+f(x,y-1)+f(x,y+1)-φf(x,y)
+t(x,y)=f(x+1,y)+f(x-1,y)+f(x,y+1)+f(x,y-1)-4f(x,y)
 $$
-It's given by the Fourier transfor
+By the property of the Fourier transform
 $$
 \begin{align}
-&T(u,v)=F(u,v)(e^{\frac{j2πu}{M}}+e^{\frac{-j2πu}{M}}+e^{\frac{j2πv}{N}}+e^{\frac{-j2πv}{N}}-φ)\\
-&=F(u,v)·H(u,v)
+&T(u,v)=F(u,v)(e^{\frac{j2πu}{M}}+e^{\frac{-j2πu}{M}}+e^{\frac{j2πv}{N}}+e^{\frac{-j2πv}{N}}-4)\\
+
+&=F(u,v)H(u,v)
 \end{align}
 $$
 So we can get
 $$
-H(u,v)=(e^{\frac{j2πu}{M}}+e^{\frac{-j2πu}{M}}+e^{\frac{j2πv}{N}}+e^{\frac{-j2πv}{N}}-φ)
+H(u,v)=(e^{\frac{j2πu}{M}}+e^{\frac{-j2πu}{M}}+e^{\frac{j2πv}{N}}+e^{\frac{-j2πv}{N}}-4)
 $$
 It's given by Euler's formula
 $$
-2[cos⁡(\frac{2πu}{M})+cos⁡(\frac{2πv}{N})-2]
+H(u,v)=2[cos⁡(\frac{2πu}{M})+cos⁡(\frac{2πv}{N})-2]
 $$
 (b) You can sketch the filter roughly, using the u direction as an example
 
@@ -165,13 +166,14 @@ h(x,y)\Longleftrightarrow H(u,v)
 $$
 And because h(x,y) is a real function
 
-(This is given by the symmetry of the DFT)
 $$
 h(-x,-y)\Longleftrightarrow H^* (u,v)
 $$
+​                                                                             (This is given by the symmetry of the DFT)
+
 So we get
 $$
-h(-x,-y)×(-1)^{x+y}=f(-x,-y)\cdot(-1)^{-(x+y)}\cdot(-1)^{x+y}=f(-x,-y)
+h(-x,-y)×(-1)^{x+y}=f(-x,-y)×(-1)^{-(x+y)}×(-1)^{x+y}=f(-x,-y)
 $$
 Therefore, the phenomenon shown in the figure will occur
 
@@ -181,42 +183,57 @@ Therefore, the phenomenon shown in the figure will occur
 
 **Answer:**
 
-$(a)$ By Gaussian filter Expression: $H(u,v)=e^{-\frac{D^2(u,v)}{2D^2_0}}$,
+$(a)$   By Gaussian filter Expression
 
-We assume that the original image is : $f(u,v)$, 
+​                                                                                               $H(u,v)=e^{-\frac{D^2(u,v)}{2D^2_0}}$,
 
-The result of Fourier transform on $f(u,v)$ is : $F(u,v)$,
+​         We assume that the original image is 
 
-Filter the image by once, we can get $T(x,y)=H(u,v)·F(u,v)=e^{-\frac{D^2(u,v)}{2D^2_0}}·F(u,v)$
+​                                                                                             $f(x,y)\Longleftrightarrow F(u,v)$ 
 
-Filter the image by K times,we can get $G(x,y) =[H(u,v)]^k \cdot F(u,v)=e^{-\frac{KD^2(u,v)}{2D^2_0}}·F(u,v)$
+​         Filter the image by once, we can get 
 
-Predict: $K$ in enough, when $K→∞$,  so we can only remain $F(0,0)$ by Gaussian Filter Expression,
+​                                                                          $T(u,v)=H(u,v)F(u,v)=e^{-\frac{D^2(u,v)}{2D^2_0}}F(u,v)$
 
-and its size is the average size of the entire image.
+​         Filter the image by K times,we can get 
 
-$(b)$ by prediction in $(a)$, $K→∞$, $G(x,y) =[H(u,v)]^k·F(u,v)=e^{-\frac{KD^2(u,v)}{2D^2_0}}·F(u,v)$ 
+​                                                                    $G(u,v) =[H(u,v)]^k  F(u,v)=e^{-\frac{KD^2(u,v)}{2D^2_0}}F(u,v)$
+
+​         When K is large enough,   we can only remain the lowest frequency part of the image $F(0,0)$ 
+
+​         and its size is the average size of the entire image.
+
+$(b)$    by result in $(a)$                                                    $[H(u,v)]^k=e^{-\frac{KD^2(u,v)}{2D^2_0}}$ 
+
+​                                                                                            when     $K→∞$
 $$
-G(u,v)=
+[H(u,v)]^k=
 \begin{cases}
 1,\ \ \ \ (u,v)=(0,0)\\
 0,\ \ \ \ \ else\\
 \end{cases}
 $$
-due to Cmin is the smallest pozition number representable in the machine,
+​         due to $$Cmin$$ is the smallest positive number representable in the machine and u,v are both positive integers
 
-When $e^{-\frac{KD^2(u,v)}{2D^2_0}} < 0.5 Cmin$ ,we can get $G(u,v)= 0$ 
-$$
-\begin{align}
-&e^{-\frac{KD^2(u,v)}{2D^2_0}} < 0.5 Cmin\\
-&⇒K>{\frac{-2D^2_0ln(0.5Cmin)}{D^(u,v)}}\\
-&⇒K_{min}=[\frac{-2D^2_0ln(0.5Cmin)}{D^(u,v)}]_{min}\\
-&=\frac{-2D^2_0ln(0.5Cmin)}{1}\\
-&=-2D^2_0ln(0.5Cmin)
-\end{align}
-$$
+​         so we can get
 
-<div STYLE="page-break-after: always;"></div>
+​                                                                                          $$&e^{-\frac{KD^2(u,v)}{2D^2_0}} < 0.5 Cmin\\$$
+
+ 
+
+​                                                                                      $$&⇒K>{\frac{-2D^2_0ln(0.5Cmin)}{D^2(u,v)}}\\$$
+
+
+
+​                                                                                $$&⇒K_{min}=[\frac{-2D^2_0ln(0.5Cmin)}{D^2(u,v)}]_{max}\\$$
+
+
+
+​                                                                                                 $$&=\frac{-2D^2_0ln(0.5Cmin)}{1}\\$$
+
+
+
+​                                                                                                      $$=-2D^2_0ln(0.5Cmin)$$
 
 <font face = "微软雅黑"  size= 5><b>Part II Programming</b></font>
 
