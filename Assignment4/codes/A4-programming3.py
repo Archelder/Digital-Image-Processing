@@ -11,11 +11,11 @@ def Harmonic(m):
     order=m*m
     height=int((m-1)/2)
     width=int((m-1)/2)
-    Pad=np.pad(original_image.copy(),((height,m-height-1),(width,m-width-1)),mode="edge")
+    pad=np.pad(original_image.copy(),((height,m-height-1),(width,m-width-1)),mode="edge")
     target=original_image.copy()
     for i in range(height,image_height+height):
         for j in range(width,image_width+width):
-            denominator=np.sum(1.0/(Pad[i-height:i+height+1,j-width:j+width+1]))
+            denominator=np.sum(1.0/(pad[i-height:i+height+1,j-width:j+width+1]))
             target[i-height][j-width]=order/denominator
     return target
 
