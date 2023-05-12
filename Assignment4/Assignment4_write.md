@@ -20,8 +20,29 @@ Assuming continuous variables and negligible noise, find an expression for the o
 
 **Answer:**
 
+we know that: this image can be modeled to:
+$$
+f(x,y)=\delta(x-a)+\delta(y-b)
+$$
+so, we can get that:
+$$
+F(u,v)=2\pi\delta(v)e^{-j2\pi ua}+2\pi\delta(u)e^{-j2\pi vb}
+$$
+since $h(x,y)=e^{-[(x-\alpha)^2+(y-\beta)^2]} \tag{1}$ :
+$$
+H(u,v)=\sqrt\pi e^{-\pi ^2u^2}e^{-j2\pi u\alpha}\sqrt\pi e^{-\pi ^2v^2}e^{-j2\pi v\beta}
+$$
+and:
+$$
+\begin{array}{l}
+G(u,v) &= F(u,v)H(u,v)\\
+&=\sqrt\pi e^{-\pi ^2u^2}e^{-j2\pi u(\alpha+a)}\sqrt\pi e^{-\pi ^2v^2}e^{-j2\pi v\beta}2\pi \delta(v)+\sqrt\pi e^{-\pi ^2v^2}e^{-j2\pi v(\beta+b)}\sqrt\pi e^{-\pi ^2u^2}e^{-j2\pi u\alpha}2\pi \delta(u)
+\end{array}
+$$
 
+$$
 
+$$
 
 
 
