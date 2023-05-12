@@ -4,14 +4,28 @@ import numpy as np
 
 # open
 original_image = cv2.imread("../images/FigP0501.png", flags=0)
+image_height=original_image.shape[0]
+image_width=original_image.shape[1]
+
+def Harmonic(m):
+    order=m*m
+    kernalMean=np.ones((m,m),np.float32)
+    hPad=int((m-1)/2)
+    wPad=int((m-1)/2)
+    imgPad=np.pad(original_image.copy(),((hPad,m-hPad-1),(wPad,m-wPad-1)),mode="edge")
+    elsilon=1e-8
+    imgHarMean=original_image.copy()
+    for i in range(hPad,image_height+hPad):
+        for j in range(wPad,image_width+wPad):
+            sumTemp=np.sum(1.0/(imgPad[i-hPad:i+hPad+1,j-wPad:j+wPad+1]+elsilon))
+            imgHarMean[i-hPad][j-wPad]=order/sumTemp
+    return imgHarMean
+
 size = [3, 7, 9]
-type = []
-for i in size:
-    type.append(np.ones((i, i), np.float32) / (i * i))
 
 target_image = []
-for i in type:
-    target_image.append(cv2.filter2D(original_image, -1, i))
+for i in size:
+    target_image.append(Harmonic(i))
 
 # show
 fig, axs = plt.subplots(nrows=1, ncols=4, figsize=(10, 4))
