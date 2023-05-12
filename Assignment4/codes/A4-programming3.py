@@ -9,17 +9,15 @@ image_width=original_image.shape[1]
 
 def Harmonic(m):
     order=m*m
-    kernalMean=np.ones((m,m),np.float32)
-    hPad=int((m-1)/2)
-    wPad=int((m-1)/2)
-    imgPad=np.pad(original_image.copy(),((hPad,m-hPad-1),(wPad,m-wPad-1)),mode="edge")
-    elsilon=1e-8
-    imgHarMean=original_image.copy()
-    for i in range(hPad,image_height+hPad):
-        for j in range(wPad,image_width+wPad):
-            sumTemp=np.sum(1.0/(imgPad[i-hPad:i+hPad+1,j-wPad:j+wPad+1]+elsilon))
-            imgHarMean[i-hPad][j-wPad]=order/sumTemp
-    return imgHarMean
+    height=int((m-1)/2)
+    width=int((m-1)/2)
+    Pad=np.pad(original_image.copy(),((height,m-height-1),(width,m-width-1)),mode="edge")
+    target=original_image.copy()
+    for i in range(height,image_height+height):
+        for j in range(width,image_width+width):
+            denominator=np.sum(1.0/(Pad[i-height:i+height+1,j-width:j+width+1]))
+            target[i-height][j-width]=order/denominator
+    return target
 
 size = [3, 7, 9]
 
