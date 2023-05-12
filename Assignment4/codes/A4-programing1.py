@@ -9,7 +9,7 @@ target_image=cv2.blur(original_image,size)
 
 fig, axs = plt.subplots(nrows=1, ncols=1, figsize=(15, 15))
 
-ax = axs[0, 0]
+ax = axs
 ax.imshow(target_image, cmap='gray')
 ax.set_title(f"3*3")
 ax.set_xticks([])
