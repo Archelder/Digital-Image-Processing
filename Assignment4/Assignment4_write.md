@@ -30,7 +30,9 @@ F(u,v)=2\pi\delta(v)e^{-j2\pi ua}+2\pi\delta(u)e^{-j2\pi vb}
 $$
 since $h(x,y)=e^{-[(x-\alpha)^2+(y-\beta)^2]} \tag{1}$ :
 $$
-H(u,v)=\sqrt\pi e^{-\pi ^2u^2}e^{-j2\pi u\alpha}\sqrt\pi e^{-\pi ^2v^2}e^{-j2\pi v\beta}
+\begin{array}{l}
+H(u,v)&=\sqrt\pi e^{-\pi ^2u^2}e^{-j2\pi u\alpha}\sqrt\pi e^{-\pi ^2v^2}e^{-j2\pi v\beta}\\
+\end{array}
 $$
 and:
 $$
@@ -40,9 +42,28 @@ G(u,v) &= F(u,v)H(u,v)\\
 \end{array}
 $$
 
+for what we want $g(x,y)$ = $F^{-1}[G(u,v)]$ :
+$$
+\begin{array}{l}
+g(x,y)&=\int_{-\infty}^{+\infty}2\pi \delta(v)\sqrt\pi e^{-\pi^2v^2}e^{-j2\pi v\beta}e^{j2\pi vy}dv\int_{-\infty}^{+\infty}\sqrt\pi e^{-\pi^2u^2}e^{-j2\pi u(\alpha+a)}e^{j2\pi ux}du\\
+&+\int_{-\infty}^{+\infty}2\pi \delta(u)\sqrt\pi e^{-\pi^2u^2}e^{-j2\pi u\alpha}e^{j2\pi ux}du\int_{-\infty}^{+\infty}\sqrt\pi e^{-\pi^2v^2}e^{-j2\pi v(\beta+b)}e^{j2\pi vy}dv\\
+&=\sqrt\pi e^{-[x-(\alpha+a)^2]}+\sqrt\pi e^{-[y-(\beta+b)^2]}\\
+&=\sqrt\pi\{e^{-[x-(\alpha+a)^2]}+e^{-[y-(\beta+b)^2]}\}
+\end{array}
+$$
+so we can know the finally answer is:
+$$
+\begin{array}{l}
+&g(x,y)=\sqrt\pi\{e^{-[x-(\alpha+a)^2]}+e^{-[y-(\beta+b)^2]}\}
+\end{array}
 $$
 
-$$
+
+
+
+
+
+
 
 
 
