@@ -4,28 +4,31 @@ import numpy as np
 
 # open
 original_image = cv2.imread("../images/FigP0501.png", flags=0)
-image_height=original_image.shape[0]
-image_width=original_image.shape[1]
+image_height = original_image.shape[0]
+image_width = original_image.shape[1]
 
-def Harmonic(m):
-    order=m*m
-    height=int((m-1)/2)
-    width=int((m-1)/2)
-    pad=np.pad(original_image.copy(),((height,m-height-1),(width,m-width-1)),mode="edge")
-    target=original_image.copy()
-    for i in range(height,image_height+height):
-        for j in range(width,image_width+width):
-            denominator=np.sum(1.0/(pad[i-height:i+height+1,j-width:j+width+1]))
-            target[i-height][j-width]=order/denominator
-    return target
 
-size = [3, 7, 9]
+def harmonic_mean_filter(img, ksize):
+    h, w = img.shape[:2]
+    order = ksize * ksize
+    pad = int((ksize - 1) / 2)
+    # pad the image using `np.pad()` whose effect can also be produced by`cv2.copyMakeBorder()`
+    padded = np.pad(img, pad, 'symmetric')
+    filtered = np.zeros(img.shape)
+    for i in range(pad, pad + h):
+        for j in range(pad, pad + w):
+            s = np.sum(1 / (1e10 + padded[i - pad:i + pad, j - pad:j + pad]))
+            filtered[i - pad][j - pad] = order / s
+    return filtered
 
-target_image = []
-for i in size:
-    target_image.append(Harmonic(i))
 
-# show
+ksize = [3, 7, 9]
+
+filtered_image = []
+for size in ksize:
+    filtered_image.append(harmonic_mean_filter(original_image, size))
+
+# display the results# display the results
 fig, axs = plt.subplots(nrows=1, ncols=4, figsize=(10, 4))
 
 ax = axs[0]
@@ -36,8 +39,8 @@ ax.set_yticks([])
 
 for i in range(3):
     ax = axs[i + 1]
-    ax.imshow(target_image[i], cmap='gray')
-    ax.set_title(fr"${size[i]}\times${size[i]}")
+    ax.imshow(filtered_image[i], cmap='gray')
+    ax.set_title(fr"${ksize[i]}\times${ksize[i]} HMF")
     ax.set_xticks([])
     ax.set_yticks([])
 
