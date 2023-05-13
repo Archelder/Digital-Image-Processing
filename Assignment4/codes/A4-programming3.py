@@ -2,11 +2,6 @@ import cv2
 import matplotlib.pyplot as plt
 import numpy as np
 
-# open
-original_image = cv2.imread("../images/FigP0501.png", flags=0)
-image_height = original_image.shape[0]
-image_width = original_image.shape[1]
-
 
 def harmonic_mean_filter(img, ksize):
     h, w = img.shape[:2]
@@ -22,6 +17,8 @@ def harmonic_mean_filter(img, ksize):
     return filtered
 
 
+# read the original image
+original_image = cv2.imread("../images/FigP0501.png", flags=0)
 ksize = [3, 7, 9]
 
 filtered_image = []
