@@ -5,12 +5,13 @@ import matplotlib.pyplot as plt
 
 def motion_blur(img, a=0.1, b=0.1, T=1):
     M, N = img.shape[:2]
-    H = np.empty(img.shape, dtype=np.complex128)
+    H = np.empty(img.shape, dtype=complex)
     # calculate the transfer function of motion blur
     for u in range(M):
         for v in range(N):
             s = u * a + v * b
             H[u, v] = (T / (np.pi * s + np.finfo(float).eps)) * np.sin(np.pi * s) * np.exp(-1j * np.pi * s)
+
     # apply the transfer function of motion blur
     f = img
     F = np.fft.fft2(f)
