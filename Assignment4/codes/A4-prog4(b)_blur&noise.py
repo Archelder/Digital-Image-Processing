@@ -76,4 +76,8 @@ for i in range(5):
     ax.set_yticks([])
 axs[1, 2].set_visible(False)
 plt.tight_layout()
+
+# output = f'../images/blur&noise.jpg'
+# plt.savefig(output)
+
 plt.show()

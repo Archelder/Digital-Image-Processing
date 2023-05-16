@@ -30,4 +30,8 @@ plt.subplot(121), plt.imshow(original_img, 'gray'), plt.title("original image"),
 plt.subplot(122), plt.imshow(blurred_img, 'gray'), plt.title("blurred image"), plt.axis('off')
 plt.suptitle("Image Blurring due to Motion")
 plt.tight_layout()
+
+# output = f'../images/Image Blurring due to Motion.jpg'
+# plt.savefig(output)
+
 plt.show()
