@@ -25,7 +25,7 @@ filtered_image = []
 for size in ksize:
     filtered_image.append(harmonic_mean_filter(original_image, size))
 
-# display the results# display the results
+# display the results
 fig, axs = plt.subplots(nrows=1, ncols=4, figsize=(10, 4))
 
 ax = axs[0]
