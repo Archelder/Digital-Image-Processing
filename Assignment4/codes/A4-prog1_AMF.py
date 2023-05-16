@@ -33,4 +33,7 @@ plt.suptitle("Running Results of Arithmetic Mean Filtering")
 
 plt.tight_layout()
 
+# output = f'../images/Arithmetic Mean Filtering.jpg'
+# plt.savefig(output)
+
 plt.show()

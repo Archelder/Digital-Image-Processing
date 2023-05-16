@@ -46,4 +46,7 @@ plt.suptitle("Running Results of Geometric Mean Filtering")
 
 plt.tight_layout()
 
+# output = f'../images/Geometric Mean Filtering.jpg'
+# plt.savefig(output)
+
 plt.show()

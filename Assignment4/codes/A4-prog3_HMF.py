@@ -45,4 +45,7 @@ plt.suptitle("Running Results of Harmonic Mean Filtering")
 
 plt.tight_layout()
 
+# output = f'../images/Harmonic Mean Filtering.jpg'
+# plt.savefig(output)
+
 plt.show()
