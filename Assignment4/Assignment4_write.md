@@ -142,9 +142,9 @@ $$
 It is easy to see that when H(u,v) is small, it amplifies the effect of noise, so it will have a different effect, if Wiener filter is used, it will have:
 $$
 \begin{array}{l}
-\widehat{F}(u,v) &=[\dfrac{1}{H(u,v)}\cdot\dfrac{|H(u,v)|^2}{|H(u,v)^2|+K}]\cdot G(u,v)\\
-&=\dfrac{G(u,v)}{H(u,v)}\cdot\dfrac{|H(u,v)|^2}{|H(u,v)^2|+K}\\
-&=[F(u,v)+\dfrac{N(u,v)}{H(u,v)}]\cdot \dfrac{|H(u,v)|^2}{|H(u,v)^2|+K}
+\widehat{F}(u,v) &=[\dfrac{1}{H(u,v)}\cdot\dfrac{|H(u,v)|^2}{|H(u,v)|^2+K}]\cdot G(u,v)\\
+&=\dfrac{G(u,v)}{H(u,v)}\cdot\dfrac{|H(u,v)|^2}{|H(u,v)|^2+K}\\
+&=[F(u,v)+\dfrac{N(u,v)}{H(u,v)}]\cdot \dfrac{|H(u,v)|^2}{|H(u,v)|^2+K}
 \end{array}{}
 $$
 Therefore, when H(u,v) is very small, the effect of noise amplified by H(u,v) is attenuated, so as to avoid this phenomenon
@@ -168,7 +168,7 @@ $$
 We can get:
 $$
 \begin{array}{l}
-h(x,y) &=\dfrac{\delta^2(e^{\dfrac{-(x^2+y^2)}{2\sigma^2}})}{2x^2}+\dfrac{\delta^2(e^{\dfrac{-(x^2+y^2)}{2\sigma^2}})}{2y^2}\\
+h(x,y) &=\dfrac{∂^2(e^{\dfrac{-(x^2+y^2)}{\sigma^2}})}{∂x^2}+\dfrac{∂^2(e^{\dfrac{-(x^2+y^2)}{2\sigma^2}})}{∂y^2}\\
 &=\dfrac{x^2-\sigma^2}{\sigma^4}+\dfrac{y^2-\sigma^2}{\sigma^4}\\
 &=\dfrac{x^2+y^2-2\sigma^2}{\sigma^4}
 \end{array}{}
@@ -179,7 +179,7 @@ f(x,y)=e^{-\frac{x^2+y^2}{2\sigma^2}}
 $$
 From the knowledge of the previous chapter:
 $$
-\frac{\delta^2f(x,y)}{2x^2}+\frac{\delta^2f(x,y)}{2y^2}\Longleftrightarrow-4\pi^2(u^2+v^2)F(u,v)
+\frac{∂^2f(x,y)}{∂x^2}+\frac{∂^2f(x,y)}{∂y^2}\Longleftrightarrow-4\pi^2(u^2+v^2)F(u,v)
 $$
 And then
 $$
@@ -188,7 +188,7 @@ $$
 Therefore
 $$
 \begin{array}{l}
-h(x,y)\Longleftrightarrow H(u,v) &=-4\pi(u^2+v^2)\cdot2\pi\sigma^2e^{-2\pi\sigma^2(u^2+v^2)}\\
+h(x,y)\Longleftrightarrow H(u,v) &=-4\pi^2(u^2+v^2)\cdot2\pi\sigma^2e^{-2\pi\sigma^2(u^2+v^2)}\\
 &=-8\pi^3\sigma^2(u^2+v^2)e^{-2\pi^2\sigma^2(u^2+v^2)}
 \end{array}{}
 $$
