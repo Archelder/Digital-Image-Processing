@@ -212,7 +212,7 @@ H(u,v) as shown in the figure
 
 **Answer:**
 
-Firstly, according to the linear space invariant system is completely represented by its impulse response, we only need to observe a transformation of the whole image, then we can estimate the fuzzy image H(u,v) of the whole image through the fuzzy function H'(u,v).Since the subject has accurate image information before the crosshair blur, set g(x,y), and set g'(x,y) after the blur. The Fourier transform corresponding to the frequency domain gives you G(u,v) and G'(u,v). Then the approximate fuzzy function can be estimated in terms of 
+Firstly, according to the linear space invariant system is completely represented by its impulse response, we only need to observe a transformation of the whole image, then we can estimate the fuzzy image $H(u,v)$ of the whole image through the fuzzy function $H'(u,v)$.Since the subject has accurate image information before the crosshair blur, set $g(x,y)$, and set $g'(x,y)$ after the blur. The Fourier transform corresponding to the frequency domain gives you $G(u,v)$ and $G'(u,v)$. Then the approximate fuzzy function can be estimated in terms of 
 $$
 H(u,v)=\frac{G'(u,v)}{G(u,v)}
 $$
@@ -237,7 +237,7 @@ $$
 
 **Answer:**
 
-For image d, we need at least more than 200 sampling points, so aliasing will occur theoretically. In this case, the aliased result looks like a normal checkerboard pattern. In fact, this image would result from sampling a checker- board image whose squares were 12 pixels on the side. Thus, the situation shown in Figure d occurs
+For image of d, we need at least more than 200 sampling points, so aliasing will occur theoretically. In this case, the aliased result looks like a normal checkerboard pattern. In fact, this image would result from sampling a checker- board image whose squares were 12 pixels on the side. Thus, the situation shown in Figure d occurs
 
 
 
