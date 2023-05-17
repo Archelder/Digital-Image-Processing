@@ -20,6 +20,48 @@ Assuming continuous variables and negligible noise, find an expression for the o
 
 **Answer:**
 
+we know that: this image can be modeled to:
+$$
+f(x,y)=\delta(x-a)+\delta(y-b)
+$$
+so, we can get that:
+$$
+F(u,v)=2\pi\delta(v)e^{-j2\pi ua}+2\pi\delta(u)e^{-j2\pi vb}
+$$
+since $h(x,y)=e^{-[(x-\alpha)^2+(y-\beta)^2]} \tag{1}$ :
+$$
+\begin{array}{l}
+H(u,v)&=\sqrt\pi e^{-\pi ^2u^2}e^{-j2\pi u\alpha}\sqrt\pi e^{-\pi ^2v^2}e^{-j2\pi v\beta}\\
+\end{array}
+$$
+and:
+$$
+\begin{array}{l}
+G(u,v) &= F(u,v)H(u,v)\\
+&=\sqrt\pi e^{-\pi ^2u^2}e^{-j2\pi u(\alpha+a)}\sqrt\pi e^{-\pi ^2v^2}e^{-j2\pi v\beta}2\pi \delta(v)+\sqrt\pi e^{-\pi ^2v^2}e^{-j2\pi v(\beta+b)}\sqrt\pi e^{-\pi ^2u^2}e^{-j2\pi u\alpha}2\pi \delta(u)
+\end{array}
+$$
+
+for what we want $g(x,y)$ = $\mathscr{F}^{-1}[G(u,v)]$ :
+$$
+\begin{array}{l}
+g(x,y)&=\int_{-\infty}^{+\infty}2\pi \delta(v)\sqrt\pi e^{-\pi^2v^2}e^{-j2\pi v\beta}e^{j2\pi vy}dv\int_{-\infty}^{+\infty}\sqrt\pi e^{-\pi^2u^2}e^{-j2\pi u(\alpha+a)}e^{j2\pi ux}du\\
+&+\int_{-\infty}^{+\infty}2\pi \delta(u)\sqrt\pi e^{-\pi^2u^2}e^{-j2\pi u\alpha}e^{j2\pi ux}du\int_{-\infty}^{+\infty}\sqrt\pi e^{-\pi^2v^2}e^{-j2\pi v(\beta+b)}e^{j2\pi vy}dv\\
+&=\sqrt\pi e^{-[x-(\alpha+a)^2]}+\sqrt\pi e^{-[y-(\beta+b)^2]}\\
+&=\sqrt\pi\{e^{-[x-(\alpha+a)^2]}+e^{-[y-(\beta+b)^2]}\}
+\end{array}
+$$
+so we can know the finally answer is:
+$$
+\begin{array}{l}
+&g(x,y)=\sqrt\pi\{e^{-[x-(\alpha+a)^2]}+e^{-[y-(\beta+b)^2]}\}
+\end{array}
+$$
+
+
+
+
+
 
 
 
@@ -34,13 +76,41 @@ Assuming continuous variables and negligible noise, find an expression for the o
 
 **Answer:**
 
+First down, then to the right, and at constant velocity, you get
+
+![](images/绘图1.jpg)
+
+In vertical direction
+$$
+X(t) = \left\{\begin{array}{left}
+a/T_1\cdot t,   & 0\le t \le T_1 \\
+a,   & t >T_1 \\
+\end{array}{}\right.
+$$
 
 
+In horizontal direction
+$$
+Y(t) = \left\{\begin{array}{left}
+b/T_2\cdot(t-T_1),   &T_1< t \le T_2 \\
+0,   & 0\le t \le T_1 \\
+\end{array}{}\right.
+$$
 
 
-
-
-
+With the formula  
+$$
+H(u,v)= \int_0^T {e^{-j2\pi[ux_o(t)+vy_0(t)]} dt}\\
+$$
+ we can get
+$$
+\begin{array}{l}
+H(u,v) &=\int_0^{T_1} {e^{-j2\pi u\cdot at/T_1} dt}+ \int_{T_1}^{T_1+T_2} {e^{-j2\pi[ua+v\cdot b(t-T_1)/T_2]} dt}\\
+  &= \dfrac{1}{-j2\pi ua/T_1}\cdot[e^{-j2\pi uat/T_1}]^{T_1}_0+\dfrac{1}{-j2\pi bv/T_2}\cdot[e^{-j2\pi vbt/T_2}]^{T_1+T_2}_{T_1}\cdot e^{-j2\pi[ua-bT_1/T_2]}\\
+  &= \dfrac{e^{-j2\pi ua}-1}{-j2\pi ua/T_1}+\dfrac{e^{-j2\pi(ua+vb)}-e^{-j2\pi ua}}{-j2\pi vb/T_2}\\
+  &= e^{-jua\pi}\sin(\pi ua)\dfrac{T_1}{\pi ua}+e^{-j2\pi ua}e^{-jvb\pi}\sin(\pi vb)\dfrac{T_2}{\pi vb}\\
+\end{array}{}
+$$
 
 ***
 
@@ -65,15 +135,19 @@ Assuming continuous variables and negligible noise, find an expression for the o
 
 **Answer:**
 
-
-
-
-
-
-
-
-
-
+If you use inverse filtering, there will be:
+$$
+\widehat{F}(u,v)=\dfrac{G(u,v)}{H(u,v)}=F(u,v)+\dfrac{N(u,v)}{H(u,v)}
+$$
+It is easy to see that when H(u,v) is small, it amplifies the effect of noise, so it will have a different effect, if Wiener filter is used, it will have:
+$$
+\begin{array}{l}
+\widehat{F}(u,v) &=[\dfrac{1}{H(u,v)}\cdot\dfrac{|H(u,v)|^2}{|H(u,v)|^2+K}]\cdot G(u,v)\\
+&=\dfrac{G(u,v)}{H(u,v)}\cdot\dfrac{|H(u,v)|^2}{|H(u,v)|^2+K}\\
+&=[F(u,v)+\dfrac{N(u,v)}{H(u,v)}]\cdot \dfrac{|H(u,v)|^2}{|H(u,v)|^2+K}
+\end{array}{}
+$$
+Therefore, when H(u,v) is very small, the effect of noise amplified by H(u,v) is attenuated, so as to avoid this phenomenon
 
 ***
 
@@ -87,11 +161,38 @@ H(u,v)=-8\pi^3\sigma^2(u^2+v^2)e^{-2\pi^2\sigma^2(u^2+v^2)} \tag{3}
 $$
 **Answer:**
 
-
-
-
-
-
+We can see that from 
+$$
+h(x,y)=\frac{x^2+y^2-2\sigma^2}{\sigma^4}\cdot e^{\frac{-(x^2+y^2)}{2\sigma^2}}
+$$
+We can get:
+$$
+\begin{array}{l}
+h(x,y) &=\dfrac{∂^2(e^{\dfrac{-(x^2+y^2)}{\sigma^2}})}{∂x^2}+\dfrac{∂^2(e^{\dfrac{-(x^2+y^2)}{2\sigma^2}})}{∂y^2}\\
+&=\dfrac{x^2-\sigma^2}{\sigma^4}+\dfrac{y^2-\sigma^2}{\sigma^4}\\
+&=\dfrac{x^2+y^2-2\sigma^2}{\sigma^4}
+\end{array}{}
+$$
+Let's say 
+$$
+f(x,y)=e^{-\frac{x^2+y^2}{2\sigma^2}}
+$$
+From the knowledge of the previous chapter:
+$$
+\frac{∂^2f(x,y)}{∂x^2}+\frac{∂^2f(x,y)}{∂y^2}\Longleftrightarrow-4\pi^2(u^2+v^2)F(u,v)
+$$
+And then
+$$
+F(u,v)=2\pi\sigma^2e^{-2\pi\sigma^2(u^2+v^2)}
+$$
+Therefore
+$$
+\begin{array}{l}
+h(x,y)\Longleftrightarrow H(u,v) &=-4\pi^2(u^2+v^2)\cdot2\pi\sigma^2e^{-2\pi\sigma^2(u^2+v^2)}\\
+&=-8\pi^3\sigma^2(u^2+v^2)e^{-2\pi^2\sigma^2(u^2+v^2)}
+\end{array}{}
+$$
+H(u,v) as shown in the figure
 
 
 
@@ -111,6 +212,10 @@ $$
 
 **Answer:**
 
+Firstly, according to the linear space invariant system is completely represented by its impulse response, we only need to observe a transformation of the whole image, then we can estimate the fuzzy image $H(u,v)$ of the whole image through the fuzzy function $H'(u,v)$.Since the subject has accurate image information before the crosshair blur, set $g(x,y)$, and set $g'(x,y)$ after the blur. The Fourier transform corresponding to the frequency domain gives you $G(u,v)$ and $G'(u,v)$. Then the approximate fuzzy function can be estimated in terms of 
+$$
+H(u,v)=\frac{G'(u,v)}{G(u,v)}
+$$
 
 
 
@@ -130,9 +235,9 @@ $$
 
 <div align=center><b>FIGURE 4 Aliasing in image</b></div>
 
+**Answer:**
 
-
-
+For image of d, we need at least more than 200 sampling points, so aliasing will occur theoretically. In this case, the aliased result looks like a normal checkerboard pattern. In fact, this image would result from sampling a checker- board image whose squares were 12 pixels on the side. Thus, the situation shown in Figure d occurs
 
 
 
