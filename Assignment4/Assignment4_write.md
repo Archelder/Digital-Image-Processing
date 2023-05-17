@@ -42,7 +42,7 @@ G(u,v) &= F(u,v)H(u,v)\\
 \end{array}
 $$
 
-for what we want $g(x,y)$ = $F^{-1}[G(u,v)]$ :
+for what we want $g(x,y)$ = $\mathscr{F}^{-1}[G(u,v)]$ :
 $$
 \begin{array}{l}
 g(x,y)&=\int_{-\infty}^{+\infty}2\pi \delta(v)\sqrt\pi e^{-\pi^2v^2}e^{-j2\pi v\beta}e^{j2\pi vy}dv\int_{-\infty}^{+\infty}\sqrt\pi e^{-\pi^2u^2}e^{-j2\pi u(\alpha+a)}e^{j2\pi ux}du\\
