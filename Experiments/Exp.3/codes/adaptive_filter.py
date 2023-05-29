@@ -81,15 +81,52 @@ def adaptive_median_filter(img, max_ksize=7, min_ksize=3):
     return filtered
 
 
+def calculate_PSNR(img1, img2):
+    MSE = np.mean((img1 - img2) ** 2)
+    if MSE == 0:
+        return float('inf')
+    max_pixel = 255.0
+    PSNR = 20 * np.log10(max_pixel / np.sqrt(MSE))
+    return PSNR
+
+
+def calculate_SSIM(img1, img2):
+    img1_mean = np.mean(img1)
+    img2_mean = np.mean(img2)
+    img1_var = np.var(img1)
+    img2_var = np.var(img2)
+    img_cov = np.cov(img1.flatten(), img2.flatten())[0][1]
+
+    k1 = 0.01
+    k2 = 0.03
+    L = 255
+
+    C1 = (k1 * L) ** 2
+    C2 = (k2 * L) ** 2
+    SSIM = (2 * img1_mean * img2_mean + C1) * (2 * img_cov + C2)
+    SSIM /= (img1_mean ** 2 + img2_mean ** 2 + C1) * (img1_var + img2_var + C2)
+
+    return SSIM
+
+
 original_img = cv2.imread('../images/FigP0438(a).tif', 0)
 
 gauss_noisy_img = original_img + gauss_noise(original_img)
 salt_and_pepper_noisy_img = add_salt_and_pepper_noise(original_img)
 
-adaptive_gauss_img = adaptive_median_filter(gauss_noisy_img)
-adaptive_salt_and_pepper_img = adaptive_median_filter(salt_and_pepper_noisy_img)
 standard_gauss_img = standard_median_filter(gauss_noisy_img)
+adaptive_gauss_img = adaptive_median_filter(gauss_noisy_img)
+PSNR_standard_gauss = calculate_PSNR(original_img, standard_gauss_img)
+PSNR_adaptive_gauss = calculate_PSNR(original_img, adaptive_gauss_img)
+SSIM_standard_gauss = calculate_SSIM(original_img, standard_gauss_img)
+SSIM_adaptive_gauss = calculate_SSIM(original_img, adaptive_gauss_img)
+
 standard_salt_and_pepper_img = standard_median_filter(salt_and_pepper_noisy_img)
+adaptive_salt_and_pepper_img = adaptive_median_filter(salt_and_pepper_noisy_img)
+PSNR_standard_salt_and_pepper = calculate_PSNR(original_img, standard_salt_and_pepper_img)
+PSNR_adaptive_salt_and_pepper = calculate_PSNR(original_img, adaptive_salt_and_pepper_img)
+SSIM_standard_salt_and_pepper = calculate_SSIM(original_img, standard_salt_and_pepper_img)
+SSIM_adaptive_salt_and_pepper = calculate_SSIM(original_img, adaptive_salt_and_pepper_img)
 
 plt.figure("AMF", figsize=(12, 8))
 plt.subplot(141)
@@ -97,15 +134,21 @@ plt.imshow(original_img, 'gray'), plt.title("Original"), plt.axis('off')
 plt.subplot(242)
 plt.imshow(gauss_noisy_img, 'gray'), plt.title("Gaussian noised\n($\mu=0,\sigma=64$)"), plt.axis('off')
 plt.subplot(243)
-plt.imshow(standard_gauss_img, 'gray'), plt.title("Standard denoised\n(Gaussian)"), plt.axis('off')
+plt.imshow(standard_gauss_img, 'gray'), plt.title(
+    f"Standard denoised (Gaussian)\nPSNR={PSNR_standard_gauss:.2f}dB, SSIM={SSIM_standard_gauss:.2f}"), plt.axis('off')
 plt.subplot(244)
-plt.imshow(adaptive_gauss_img, 'gray'), plt.title("Adaptive denoised\n(Gaussian)"), plt.axis('off')
+plt.imshow(adaptive_gauss_img, 'gray'), plt.title(
+    f"Adaptive denoised (Gaussian)\nPSNR={PSNR_adaptive_gauss:.2f}dB, SSIM={SSIM_adaptive_gauss:.2f}"), plt.axis('off')
 plt.subplot(246)
 plt.imshow(salt_and_pepper_noisy_img, 'gray'), plt.title("Salt & pepper noised\n($p_a=p_b=0.25$)"), plt.axis('off')
 plt.subplot(247)
-plt.imshow(standard_salt_and_pepper_img, 'gray'), plt.title("Standard noised\n(salt & pepper)"), plt.axis('off')
+plt.imshow(standard_salt_and_pepper_img, 'gray'), plt.title(
+    f"Standard noised (salt & pepper)\nPSNR={PSNR_standard_salt_and_pepper:.2f}dB, "
+    f"SSIM={SSIM_standard_salt_and_pepper:.2f}"), plt.axis('off')
 plt.subplot(248)
-plt.imshow(adaptive_salt_and_pepper_img, 'gray'), plt.title("Adaptive denoised\n(salt & pepper)"), plt.axis('off')
+plt.imshow(adaptive_salt_and_pepper_img, 'gray'), plt.title(
+    f"Adaptive denoised (salt & pepper)\nPSNR={PSNR_adaptive_salt_and_pepper:.2f}dB, "
+    f"SSIM={SSIM_adaptive_salt_and_pepper:.2f}"), plt.axis('off')
 plt.suptitle("Adaptive and Standard Mean Filter\nwith $S_{max} = 7$")
 plt.tight_layout()
 plt.show()
