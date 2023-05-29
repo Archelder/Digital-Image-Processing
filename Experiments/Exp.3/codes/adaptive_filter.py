@@ -128,7 +128,7 @@ PSNR_adaptive_salt_and_pepper = calculate_PSNR(original_img, adaptive_salt_and_p
 SSIM_standard_salt_and_pepper = calculate_SSIM(original_img, standard_salt_and_pepper_img)
 SSIM_adaptive_salt_and_pepper = calculate_SSIM(original_img, adaptive_salt_and_pepper_img)
 
-plt.figure("AMF", figsize=(12, 8))
+plt.figure("Adaptive & Standard", figsize=(12, 8))
 plt.subplot(141)
 plt.imshow(original_img, 'gray'), plt.title("Original"), plt.axis('off')
 plt.subplot(242)
