@@ -143,7 +143,7 @@ plt.subplot(246)
 plt.imshow(salt_and_pepper_noisy_img, 'gray'), plt.title("Salt & pepper noised\n($p_a=p_b=0.25$)"), plt.axis('off')
 plt.subplot(247)
 plt.imshow(standard_salt_and_pepper_img, 'gray'), plt.title(
-    f"Standard noised (salt & pepper)\nPSNR={PSNR_standard_salt_and_pepper:.2f}dB, "
+    f"Standard denoised (salt & pepper)\nPSNR={PSNR_standard_salt_and_pepper:.2f}dB, "
     f"SSIM={SSIM_standard_salt_and_pepper:.2f}"), plt.axis('off')
 plt.subplot(248)
 plt.imshow(adaptive_salt_and_pepper_img, 'gray'), plt.title(
