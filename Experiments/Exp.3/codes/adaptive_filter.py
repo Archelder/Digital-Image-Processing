@@ -24,8 +24,19 @@ def add_salt_and_pepper_noise(img, noise_ratio=0.5, salt_ratio=0.5, salt=255, pe
     return noisy_img
 
 
+def standard_median_filter(img, ksize=7):
+    h, w = img.shape[:2]
+    pad = int((ksize - 1) / 2)
+    padded = cv2.copyMakeBorder(img, pad, pad, pad, pad, borderType=cv2.BORDER_REFLECT_101)
+    filtered = np.empty((h, w))
+    for x in range(pad, pad + h):
+        for y in range(pad, pad + w):
+            kernel = padded[x - pad:x + pad + 1, y - pad:y + pad + 1]
+            filtered[x - pad, y - pad] = np.average(kernel)
+    return filtered
+
+
 def adaptive_median_filter(img, max_ksize=7, min_ksize=3):
-    # noisy_img = img.copy()
     h, w = img.shape[:2]
     pad = int((max_ksize - 1) / 2)
     padded = cv2.copyMakeBorder(img, pad, pad, pad, pad, borderType=cv2.BORDER_REFLECT_101)
@@ -75,20 +86,26 @@ original_img = cv2.imread('../images/FigP0438(a).tif', 0)
 gauss_noisy_img = original_img + gauss_noise(original_img)
 salt_and_pepper_noisy_img = add_salt_and_pepper_noise(original_img)
 
-filtered_gauss_img = adaptive_median_filter(gauss_noisy_img)
-filtered_salt_and_pepper_img = adaptive_median_filter(salt_and_pepper_noisy_img)
+adaptive_gauss_img = adaptive_median_filter(gauss_noisy_img)
+adaptive_salt_and_pepper_img = adaptive_median_filter(salt_and_pepper_noisy_img)
+standard_gauss_img = standard_median_filter(gauss_noisy_img)
+standard_salt_and_pepper_img = standard_median_filter(salt_and_pepper_noisy_img)
 
-plt.figure("AMF",figsize=(10, 6))
-plt.subplot(131)
+plt.figure("AMF", figsize=(12, 8))
+plt.subplot(141)
 plt.imshow(original_img, 'gray'), plt.title("Original"), plt.axis('off')
-plt.subplot(232)
+plt.subplot(242)
 plt.imshow(gauss_noisy_img, 'gray'), plt.title("Gaussian noised\n($\mu=0,\sigma=64$)"), plt.axis('off')
-plt.subplot(233)
-plt.imshow(filtered_gauss_img, 'gray'), plt.title("Adaptive denoised\n(Gaussian)"), plt.axis('off')
-plt.subplot(235)
+plt.subplot(243)
+plt.imshow(standard_gauss_img, 'gray'), plt.title("Standard denoised\n(Gaussian)"), plt.axis('off')
+plt.subplot(244)
+plt.imshow(adaptive_gauss_img, 'gray'), plt.title("Adaptive denoised\n(Gaussian)"), plt.axis('off')
+plt.subplot(246)
 plt.imshow(salt_and_pepper_noisy_img, 'gray'), plt.title("Salt & pepper noised\n($p_a=p_b=0.25$)"), plt.axis('off')
-plt.subplot(236)
-plt.imshow(filtered_salt_and_pepper_img, 'gray'), plt.title("Adaptive denoised\n(salt & pepper)"), plt.axis('off')
-plt.suptitle("Adaptive Mean Filter with $S_{max} = 7$")
+plt.subplot(247)
+plt.imshow(standard_salt_and_pepper_img, 'gray'), plt.title("Standard noised\n(salt & pepper)"), plt.axis('off')
+plt.subplot(248)
+plt.imshow(adaptive_salt_and_pepper_img, 'gray'), plt.title("Adaptive denoised\n(salt & pepper)"), plt.axis('off')
+plt.suptitle("Adaptive and Standard Mean Filter\nwith $S_{max} = 7$")
 plt.tight_layout()
 plt.show()
