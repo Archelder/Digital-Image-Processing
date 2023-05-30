@@ -38,5 +38,10 @@ for i in range(len(disp_img)):
     ax.set_xticks([])
     ax.set_yticks([])
 plt.suptitle("Erosion, Dilation, Opening and Closing")
-# plt.tight_layout()
+plt.tight_layout()
+
+# save
+# output = f'../images/Erosion, Dilation, Opening and Closing.jpg'
+# plt.savefig(output)
+
 plt.show()
