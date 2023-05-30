@@ -32,6 +32,54 @@
 
 **Answer:**
 
+(a)Because
+$$
+(B)_z\subseteq A,A\circ B=\cup \{(B)_z\vert(B)_z\subseteq A\}
+$$
+We can conclude that A o B is a subset of A.
+
+(b)From the definition of opening operation we know
+$$
+C\circ B=\cup\{(B)_z\vert(B)_z\subseteq C\}
+$$
+
+$$
+D\circ B=\cup\{(B)_z\vert(B)_z\subseteq D\}
+$$
+
+If C is subset of D,the C o B is a subset of D o B
+
+(c)
+$$
+(A\circ B)\circ B=[(A\ominus B\oplus B)\ominus B]\oplus B=[(A\ominus B)\cdot B]\oplus B
+$$
+
+
+And
+$$
+(A\ominus B)\cdot B \supseteq(A\ominus B)
+$$
+
+$$
+(A\ominus B)\oplus B \supseteq(A\ominus B)
+$$
+
+$$
+\Longrightarrow(A\circ B)\circ B\subseteq A\circ B
+$$
+
+
+
+Because
+$$
+A\circ B\subseteq(A\circ B)\circ B
+$$
+
+
+We can get
+$$
+(A\circ B)\circ B=A\circ B
+$$
 
 
 
@@ -46,7 +94,36 @@
 
 **Answer:**
 
+(a) A is the input image containing the boundary
+$$
+X_1=A\otimes B_1 \\
+Y_1=A\cap X_1^c \\
+X_2=Y_1\otimes B_2 \\
+Y_2=Y_1\cap X_2^c \\
+X_3=Y_2\otimes B_3 \\
+Y_3=Y_2\cap X_3^c \\
+X_4=Y_3\otimes B_4 \\
+Y_4=Y_3\cap X_4^c \\
+$$
 
+
+
+
+(b)Only one iteration is required. Application of the hit-or-miss transform using a given Bi finds all instances of occurrence of the pattern described by that structuring element. 
+
+
+
+![](images/5_1.jpg)
+
+![](images/5_2.jpg)
+
+
+
+![](images/5_3.jpg)
+
+![](images/5_4.jpg)
+
+（c）The order is important. The algorithm independent of the order in which the structuring elements are applied.
 
 
 
