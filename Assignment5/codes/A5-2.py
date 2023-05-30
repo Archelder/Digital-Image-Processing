@@ -20,7 +20,7 @@ target_image.append(cv2.morphologyEx(target_image[1], cv2.MORPH_GRADIENT, elemen
 target_image.append(cv2.bitwise_or(original_image, target_image[2]))
 
 # display the results
-fig, axs = plt.subplots(nrows=1, ncols=5, figsize=(10, 2))
+fig, axs = plt.subplots(nrows=1, ncols=5, figsize=(10, 4))
 ax = axs[0]
 ax.imshow(original_image, cmap='gray'), ax.set_title(f"original image"), ax.set_xticks([]), ax.set_yticks([])
 for i in range(4):
