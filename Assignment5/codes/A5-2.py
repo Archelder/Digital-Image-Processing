@@ -30,10 +30,10 @@ for i in range(4):
     ax.set_xticks([]), ax.set_yticks([])
 
 plt.suptitle("Running Results of Textural segmentation")
+plt.tight_layout()
 
 # save
 # output = f'../images/Textural segmentation.jpg'
 # plt.savefig(output)
 
-plt.tight_layout()
 plt.show()
