@@ -176,31 +176,28 @@ $$
 
 (a)The intensity of this binary image is shown in Fingure a.
 
-![image-20230531125052192](C:\Users\萧珞逸\AppData\Roaming\Typora\typora-user-images\image-20230531125052192.png)
+!![image-20230531150231480](C:\Users\萧珞逸\AppData\Roaming\Typora\typora-user-images\image-20230531150231480.png)
 $$
 Figure\ a
 $$
 Through the calculation of Sobel operator and Equ.1,the magnitude of this image can be obtained, as shown in Figure b.
 
-![image-20230531130705944](C:\Users\萧珞逸\AppData\Roaming\Typora\typora-user-images\image-20230531130705944.png)
+![image-20230531150346716](C:\Users\萧珞逸\AppData\Roaming\Typora\typora-user-images\image-20230531150346716.png)
 
-![image-20230531130733478](C:\Users\萧珞逸\AppData\Roaming\Typora\typora-user-images\image-20230531130733478.png)
-
-![image-20230531130308372](C:\Users\萧珞逸\AppData\Roaming\Typora\typora-user-images\image-20230531130308372.png)
 $$
 Figure\ b
 $$
 (b)From $g_x$,$g_y$ and Equ.(2),after calculate we can get the angle value and quantities.We list them shown below.
 
-![image-20230531140756736](C:\Users\萧珞逸\AppData\Roaming\Typora\typora-user-images\image-20230531140756736.png)
+![image-20230531150420765](C:\Users\萧珞逸\AppData\Roaming\Typora\typora-user-images\image-20230531150420765.png)
 
 
 
 (c)The Laplacian's spatial mask and pixel values of this image by Laplacian are shown below.
 
+![image-20230531150449586](C:\Users\萧珞逸\AppData\Roaming\Typora\typora-user-images\image-20230531150449586.png)
 
 
-![image-20230531130425415](C:\Users\萧珞逸\AppData\Roaming\Typora\typora-user-images\image-20230531130425415.png)
 
 ***
 
@@ -261,10 +258,8 @@ $$
 **Answer:**
 
 First, the axis is divided into six subregions corresponding to the Angle between the orbit and the horizontal direction in six directions. Since the maximum is PI, the range is PI.
-Secondly, the axis ranges in
-$$
-[-\sqrt{2D},\sqrt{2D}]
-$$
+Secondly, the axis ranges in$[-\sqrt{2D},\sqrt{2D}]$
+
 The axis requires subtle partitioning to distinguish trajectories with the same direction but different starting points.
 Finally, the Hough transform can be used as a "filter" to divide all the points in the image into six groups, categorized according to six directions. Then test whether the trajectories meet the requirements of the problem according to different groups.
 
