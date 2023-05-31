@@ -173,9 +173,33 @@ $$
 
 **Answer:**
 
+(a)The intensity of this binary image is shown in Fingure a.
+
+![image-20230531125052192](C:\Users\萧珞逸\AppData\Roaming\Typora\typora-user-images\image-20230531125052192.png)
+$$
+Figure\ a
+$$
+Through the calculation of Sobel operator and Equ.1,the magnitude of this image can be obtained, as shown in Figure b.
+
+![image-20230531130705944](C:\Users\萧珞逸\AppData\Roaming\Typora\typora-user-images\image-20230531130705944.png)
+
+![image-20230531130733478](C:\Users\萧珞逸\AppData\Roaming\Typora\typora-user-images\image-20230531130733478.png)
+
+![image-20230531130308372](C:\Users\萧珞逸\AppData\Roaming\Typora\typora-user-images\image-20230531130308372.png)
+$$
+Figure\ b
+$$
+(b)From $g_x$,$g_y$ and Equ.(2),after calculate we can get the angle value and quantities.We list them shown below.
+
+![image-20230531140756736](C:\Users\萧珞逸\AppData\Roaming\Typora\typora-user-images\image-20230531140756736.png)
 
 
 
+(c)The Laplacian's spatial mask and pixel values of this image by Laplacian are shown below.
+
+
+
+![image-20230531130425415](C:\Users\萧珞逸\AppData\Roaming\Typora\typora-user-images\image-20230531130425415.png)
 
 ***
 
@@ -198,11 +222,10 @@ $$
 
 (a) Let Eq.(5)=0  ==>
 $$
-
 \frac{1}{2\pi\sigma_1^2}e^{-\frac{x^2+y^2}{2\sigma_1^2}}=\frac{1}{2\pi\sigma_2^2}e^{-\frac{x^2+y^2}{2\sigma_2^2}} \tag{5} \\
 \ln(\frac{1}{2\pi\sigma_1^2})-\frac{x^2+y^2}{2\sigma_1^2}=\ln(\frac{1}{2\pi\sigma_2^2}){-\frac{x^2+y^2}{2\sigma_2^2}} \\
 \ln(\frac{1}{2\pi\sigma_1^2})-\ln(\frac{1}{2\pi\sigma_2^2})=\frac{x^2+y^2}{2\sigma_1^2}{-\frac{x^2+y^2}{2\sigma_2^2}} \\
-\ln(\frac{1}{2\pi\sigma_1^2})-\ln(\frac{1}{2\pi\sigma_2^2})=(x^2+y^2)(\frac{1}{2\sigma_1^2}{-\frac{1}{2\sigma_2^2}}) \\
+\ln(\frac{1}{2\pi\sigma_1^2})-\ln(\frac{1}{2\pi\sigma_2^2})=(x^2+y^2)(\frac{1}{2\sigma_1^2}{-\frac{1}{2\sigma_2^2}}) \\
 $$
 Let Eq.(4)=0 ==>
 $$
