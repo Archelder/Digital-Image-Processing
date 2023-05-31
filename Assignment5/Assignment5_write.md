@@ -1,6 +1,6 @@
 <center><font face="微软雅黑" size=5 color=red><b>数字图像处理及应用 第5次作业</b></font></center>
 
-<center><font face=“微软雅黑" size=4 color = blue><b>组号： <u>XX（两位数字）</u>&emsp;小组成员： <u>（列出所有小组成员，成员姓名间用1个空格间隔）</u></b></font></center>
+<center><font face=“微软雅黑" size=4 color = blue><b>组号： <u>16</u>&emsp;小组成员： <u>冯坤龙 郝锦阳 朱从庆 辛梓阳 徐振良</u></b></font></center>
 
 
 
@@ -19,7 +19,29 @@
 
 **Answer:**
 
+(a)
 
+<img src="images/1_1_1.jpg" style="zoom:50%;" />
+
+<img src="images/1_1_2.jpg" style="zoom:50%;" />
+
+
+
+(b)
+
+<img src="images/1_2_1.jpg" style="zoom: 33%;" />
+
+<img src="images/1_2_2.jpg" style="zoom:33%;" />
+
+
+
+(c)
+
+<img src="images/1_3_1.jpg" style="zoom:33%;" />
+
+
+
+<img src="images/1_3_2.jpg" style="zoom:33%;" />
 
 
 
@@ -32,6 +54,53 @@
 
 **Answer:**
 
+(a)Because
+$$
+(B)_z\subseteq A,A\circ B=\cup \{(B)_z\vert(B)_z\subseteq A\}
+$$
+We can conclude that A o B is a subset of A.
+
+(b)From the definition of opening operation we know
+$$
+\begin{array}{l}
+C\circ B=\cup\{(B)_z\vert(B)_z\subseteq C\}\\
+D\circ B=\cup\{(B)_z\vert(B)_z\subseteq D\}
+\end{array}
+$$
+
+If $C$ is subset of $D$,the $C \circ B$ is a subset of $D \circ B$
+
+(c)
+$$
+(A\circ B)\circ B=[(A\ominus B\oplus B)\ominus B]\oplus B=[(A\ominus B)\cdot B]\oplus B
+$$
+
+
+And
+$$
+(A\ominus B)\bullet B \supseteq(A\ominus B)
+$$
+
+$$
+(A\ominus B)\oplus B \supseteq(A\ominus B)
+$$
+
+$$
+\Longrightarrow(A\circ B)\circ B\subseteq A\circ B
+$$
+
+
+
+Because
+$$
+A\circ B\subseteq(A\circ B)\circ B
+$$
+
+
+We can get
+$$
+(A\circ B)\circ B=A\circ B
+$$
 
 
 
@@ -46,7 +115,36 @@
 
 **Answer:**
 
+(a) A is the input image containing the boundary
+$$
+X_1=A\otimes B_1 \\
+Y_1=A\cap X_1^c \\
+X_2=Y_1\otimes B_2 \\
+Y_2=Y_1\cap X_2^c \\
+X_3=Y_2\otimes B_3 \\
+Y_3=Y_2\cap X_3^c \\
+X_4=Y_3\otimes B_4 \\
+Y_4=Y_3\cap X_4^c \\
+$$
 
+
+
+
+(b)Only one iteration is required. Application of the hit-or-miss transform using a given Bi finds all instances of occurrence of the pattern described by that structuring element. 
+
+
+
+<img src="images/5_1.jpg" style="zoom:33%;" />
+
+<img src="images/5_2.jpg" style="zoom:33%;" />
+
+
+
+<img src="images/5_3.jpg" style="zoom:33%;" />
+
+<img src="images/5_4.jpg" style="zoom:33%;" />
+
+（c）The order is important. The algorithm independent of the order in which the structuring elements are applied.
 
 
 
@@ -74,9 +172,25 @@ $$
 
 **Answer:**
 
+(a)The intensity of this binary image is shown as below.
+
+![](./images/table1.pdf)
 
 
 
+Through the calculation of Sobel operator and Equ.1,the magnitude of this image can be obtained, shown as below.
+
+<img src="./images/table2.pdf" alt="image-20230531150346716" style="zoom:300%;" />
+
+(b)From $g_x$,$g_y$ and Equ.(2),after calculate we can get the angle value and quantities.We list them shown below.
+
+<img src="./images/table3.pdf" style="zoom:200%;" />
+
+
+
+(c)The Laplacian's spatial mask and pixel values of this image by Laplacian are shown below.
+
+<img src="./images/table4.pdf" style="zoom:200%;" />
 
 ***
 
@@ -97,9 +211,32 @@ $$
 
 **Answer:**
 
+(a) Let Eq.(5)=0 $\Rightarrow$
+$$
+\frac{1}{2\pi\sigma_1^2}e^{-\frac{x^2+y^2}{2\sigma_1^2}}=\frac{1}{2\pi\sigma_2^2}e^{-\frac{x^2+y^2}{2\sigma_2^2}} \tag{5} \\
+\ln(\frac{1}{2\pi\sigma_1^2})-\frac{x^2+y^2}{2\sigma_1^2}=\ln(\frac{1}{2\pi\sigma_2^2}){-\frac{x^2+y^2}{2\sigma_2^2}} \\
+\ln(\frac{1}{2\pi\sigma_1^2})-\ln(\frac{1}{2\pi\sigma_2^2})=\frac{x^2+y^2}{2\sigma_1^2}{-\frac{x^2+y^2}{2\sigma_2^2}} \\
+\ln(\frac{1}{2\pi\sigma_1^2})-\ln(\frac{1}{2\pi\sigma_2^2})=(x^2+y^2)(\frac{1}{2\sigma_1^2}{-\frac{1}{2\sigma_2^2}}) \\
+$$
+Let Eq.(4)=0 $\Rightarrow$
+$$
+x^2+y^2=2\sigma^2
+$$
+From the above equation, it can be concluded that
+$$
+\ln(\frac{1}{2\pi\sigma_1^2})-\ln(\frac{1}{2\pi\sigma_2^2})=\sigma^2(\frac{1}{\sigma_1^2}{-\frac{1}{\sigma_2^2}}) \\
+\sigma^2=\frac{\ln(\frac{1}{2\pi\sigma_1^2}) -\ln(\frac{1}{2\pi\sigma_2^2})}{(\frac{1}{\sigma_1^2}{-\frac{1}{\sigma_2^2}})}=\frac{\ln(\frac{\sigma^2_2}{\sigma^2_1})}{\frac{1}{\sigma^2_1}-\frac{1}{\sigma^2_2}}=\frac{\sigma^2_1\sigma^2_2}{\sigma^2_1-\sigma^2_1}ln[\frac{\sigma^2_1}{\sigma^2_1}]
+$$
 
 
-
+(b) let
+$$
+\begin{align*} \\
+\sigma_1=&k\sigma_2,(k>1) \\
+\sigma^2=&\frac{k^2\sigma^4_2}{k^2\sigma^2_2-\sigma^2_2}\ln[\frac{k^2\sigma^2_2}{\sigma^2_2}] \\
+=&\frac{k^2}{k^2-1}\sigma^2_2\ln(k^2)
+\end{align*} \\
+$$
 
 ***
 
@@ -107,7 +244,13 @@ $$
 
 **Answer:**
 
-
+First, the axis is divided into six subregions corresponding to the Angle between the orbit and the horizontal direction in six directions. Since the maximum is PI, the range is PI.
+Secondly, the axis ranges in
+$$
+[-\sqrt{2D},\sqrt{2D}]
+$$
+The axis requires subtle partitioning to distinguish trajectories with the same direction but different starting points.
+Finally, the Hough transform can be used as a "filter" to divide all the points in the image into six groups, categorized according to six directions. Then test whether the trajectories meet the requirements of the problem according to different groups.
 
 
 
