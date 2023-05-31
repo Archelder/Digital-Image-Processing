@@ -21,27 +21,27 @@
 
 (a)
 
-![](images/1_1_1.jpg)
+<img src="images/1_1_1.jpg" style="zoom:50%;" />
 
-![](images/1_1_2.jpg)
+<img src="images/1_1_2.jpg" style="zoom:50%;" />
 
 
 
 (b)
 
-![](images/1_2_1.jpg)
+<img src="images/1_2_1.jpg" style="zoom: 33%;" />
 
-![](images/1_2_2.jpg)
+<img src="images/1_2_2.jpg" style="zoom:33%;" />
 
 
 
 (c)
 
-![](images/1_3_1.jpg)
+<img src="images/1_3_1.jpg" style="zoom:33%;" />
 
 
 
-![](images/1_3_2.jpg)
+<img src="images/1_3_2.jpg" style="zoom:33%;" />
 
 
 
@@ -135,15 +135,15 @@ $$
 
 
 
-![](images/5_1.jpg)
+<img src="images/5_1.jpg" style="zoom:33%;" />
 
-![](images/5_2.jpg)
+<img src="images/5_2.jpg" style="zoom:33%;" />
 
 
 
-![](images/5_3.jpg)
+<img src="images/5_3.jpg" style="zoom:33%;" />
 
-![](images/5_4.jpg)
+<img src="images/5_4.jpg" style="zoom:33%;" />
 
 （c）The order is important. The algorithm independent of the order in which the structuring elements are applied.
 
@@ -198,11 +198,10 @@ $$
 
 (a) Let Eq.(5)=0  ==>
 $$
-
 \frac{1}{2\pi\sigma_1^2}e^{-\frac{x^2+y^2}{2\sigma_1^2}}=\frac{1}{2\pi\sigma_2^2}e^{-\frac{x^2+y^2}{2\sigma_2^2}} \tag{5} \\
 \ln(\frac{1}{2\pi\sigma_1^2})-\frac{x^2+y^2}{2\sigma_1^2}=\ln(\frac{1}{2\pi\sigma_2^2}){-\frac{x^2+y^2}{2\sigma_2^2}} \\
 \ln(\frac{1}{2\pi\sigma_1^2})-\ln(\frac{1}{2\pi\sigma_2^2})=\frac{x^2+y^2}{2\sigma_1^2}{-\frac{x^2+y^2}{2\sigma_2^2}} \\
-\ln(\frac{1}{2\pi\sigma_1^2})-\ln(\frac{1}{2\pi\sigma_2^2})=(x^2+y^2)(\frac{1}{2\sigma_1^2}{-\frac{1}{2\sigma_2^2}}) \\
+\ln(\frac{1}{2\pi\sigma_1^2})-\ln(\frac{1}{2\pi\sigma_2^2})=(x^2+y^2)(\frac{1}{2\sigma_1^2}{-\frac{1}{2\sigma_2^2}}) \\
 $$
 Let Eq.(4)=0 ==>
 $$
