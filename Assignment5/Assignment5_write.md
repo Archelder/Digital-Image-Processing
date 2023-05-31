@@ -135,7 +135,58 @@ Set $A$ consists of all the foreground pixels (white), except the structuring el
 
 (*followed by  **Matlab live Scripts**  or **Jupyter Scripts** and running results*)
 
+```python
+import cv2
+import numpy as np
+import matplotlib.pyplot as plt
 
+original_img = cv2.imread('../images/Figp0917.png', 0)
+
+# create a circle structure element with radius 16
+se = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (32, 32))
+
+A = original_img
+B = se.copy()
+# erode A by B using function `cv2.erode()`
+C = cv2.erode(A, B)
+# dilate C by B using function `cv2.dilate()`
+D = cv2.dilate(C, B)
+# dilate D by B
+E = cv2.dilate(D, B)
+# erode E by B
+F = cv2.erode(E, B)
+
+# display the results
+B = np.zeros(original_img.shape)
+h, w = B.shape[:2]
+sh, sw = se.shape[:2]
+y = int((h - sh) / 2)
+x = int((w - sw) / 2)
+B[y:y + sh, x:x + sw] = se
+
+disp_img = [A, B, C, D, E, F]
+disp_cap = ["A: original image", "B: structure element", "$C=A\ominus B$", "$D=C\oplus B$\n$(D=A\circ B)$",
+            "$E=D\oplus B$", "$F=E\ominus B$\n" + r"$(F=D\bullet B)$"]
+
+fig, axs = plt.subplots(2, 3, figsize=(10, 8))
+for i in range(len(disp_img)):
+    ax = axs.flat[i]
+    ax.imshow(disp_img[i], 'gray')
+    ax.set_title(disp_cap[i])
+    ax.set_xticks([])
+    ax.set_yticks([])
+plt.suptitle("Erosion, Dilation, Opening and Closing")
+plt.tight_layout()
+
+# save
+# output = f'../images/Erosion, Dilation, Opening and Closing.jpg'
+# plt.savefig(output)
+
+plt.show()
+
+```
+
+![](./images/Erosion, Dilation, Opening and Closing.jpg)
 
 **2.**   Consider the image in FIGURE 4, which shows a region of small circles enclosed by a region of larger circles.
 (**a**) Give a morphologic algorithm to partition the image into two parts, in which one contains small circles and another contains larger circles. You can make any assumptions that you need to make for the method to work.
@@ -147,7 +198,50 @@ Set $A$ consists of all the foreground pixels (white), except the structuring el
 
 (*followed by **Matlab live Scripts** or **Jupyter Scripts** and running results*)
 
+```python
+import cv2
+import matplotlib.pyplot as plt
 
+# open
+original_image = cv2.imread("../images/FigP0934.png", flags=0)
+target_image = []
+
+middle_size = (50, 50)
+middle_element = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, middle_size)
+target_image.append(cv2.morphologyEx(original_image, cv2.MORPH_CLOSE, middle_element))
+
+large_size = (100, 100)
+large_element = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, large_size)
+target_image.append(cv2.morphologyEx(target_image[0], cv2.MORPH_OPEN, large_element))
+
+cut_size = (10, 10)
+element = cv2.getStructuringElement(cv2.MORPH_RECT, cut_size)
+target_image.append(cv2.morphologyEx(target_image[1], cv2.MORPH_GRADIENT, element))
+
+target_image.append(cv2.bitwise_or(original_image, target_image[2]))
+
+# display the results
+fig, axs = plt.subplots(nrows=1, ncols=5, figsize=(10, 4))
+ax = axs[0]
+ax.imshow(original_image, cmap='gray'), ax.set_title(f"original image"), ax.set_xticks([]), ax.set_yticks([])
+for i in range(4):
+    ax = axs[i + 1]
+    ax.imshow(target_image[i], 'gray')
+    ax.set_title(f"Step {i + 1}")
+    ax.set_xticks([]), ax.set_yticks([])
+
+plt.suptitle("Running Results of Textural segmentation")
+plt.tight_layout()
+
+# save
+# output = f'../images/Textural segmentation.jpg'
+# plt.savefig(output)
+
+plt.show()
+
+```
+
+![](./images/Textural segmentation.jpg)
 
 **3.**   The objects and background in FIGURE 5 have a mean intensity of 170 and 60, respectively, on a [0, 255] scale. The image is corrupted by Gaussian noise with 0 mean and a standard deviation of 10 intensity levels. 
 
@@ -160,3 +254,28 @@ Set $A$ consists of all the foreground pixels (white), except the structuring el
 <div align=center><b>FIGURE 5</b></div>
 
 (*followed by **Matlab live Scripts** or **Jupyter Scripts** and running results*)
+
+```python
+import cv2
+import matplotlib.pyplot as plt
+
+original_img = cv2.imread("../images/FigP1036.png", 0)
+thresholded_img = cv2.threshold(original_img, 60, 255, cv2.THRESH_OTSU)[1]
+
+plt.figure(figsize=(8, 6))
+plt.subplot(221), plt.imshow(original_img, 'gray'), plt.title("original")
+
+plt.subplot(222), plt.imshow(thresholded_img, 'gray'), plt.title("thresholded")
+
+plt.subplot(212), plt.hist(original_img.flatten(), 256, [0, 255], log=True)
+plt.tight_layout()
+
+# save
+# output = f'../images/Thresholding segment.jpg'
+# plt.savefig(output)
+
+plt.show()
+
+```
+
+![](./images/Thresholding segment.jpg)
