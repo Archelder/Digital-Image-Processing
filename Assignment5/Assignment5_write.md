@@ -19,7 +19,29 @@
 
 **Answer:**
 
+(a)
 
+![](images/1_1_1.jpg)
+
+![](images/1_1_2.jpg)
+
+
+
+(b)
+
+![](images/1_2_1.jpg)
+
+![](images/1_2_2.jpg)
+
+
+
+(c)
+
+![](images/1_3_1.jpg)
+
+
+
+![](images/1_3_2.jpg)
 
 
 
@@ -174,6 +196,36 @@ $$
 
 **Answer:**
 
+(a) Let Eq.(5)=0  ==>
+$$
+
+\frac{1}{2\pi\sigma_1^2}e^{-\frac{x^2+y^2}{2\sigma_1^2}}=\frac{1}{2\pi\sigma_2^2}e^{-\frac{x^2+y^2}{2\sigma_2^2}} \tag{5} \\
+\ln(\frac{1}{2\pi\sigma_1^2})-\frac{x^2+y^2}{2\sigma_1^2}=\ln(\frac{1}{2\pi\sigma_2^2}){-\frac{x^2+y^2}{2\sigma_2^2}} \\
+\ln(\frac{1}{2\pi\sigma_1^2})-\ln(\frac{1}{2\pi\sigma_2^2})=\frac{x^2+y^2}{2\sigma_1^2}{-\frac{x^2+y^2}{2\sigma_2^2}} \\
+\ln(\frac{1}{2\pi\sigma_1^2})-\ln(\frac{1}{2\pi\sigma_2^2})=(x^2+y^2)(\frac{1}{2\sigma_1^2}{-\frac{1}{2\sigma_2^2}}) \\
+$$
+Let Eq.(4)=0 ==>
+$$
+x^2+y^2=2\sigma^2
+$$
+From the above equation, it can be concluded that
+$$
+\ln(\frac{1}{2\pi\sigma_1^2})-\ln(\frac{1}{2\pi\sigma_2^2})=\sigma^2(\frac{1}{\sigma_1^2}{-\frac{1}{\sigma_2^2}}) \\
+\sigma^2=\frac{\ln(\frac{1}{2\pi\sigma_1^2}) -\ln(\frac{1}{2\pi\sigma_2^2})}{(\frac{1}{\sigma_1^2}{-\frac{1}{\sigma_2^2}})}=\frac{\ln(\frac{\sigma^2_2}{\sigma^2_1})}{\frac{1}{\sigma^2_1}-\frac{1}{\sigma^2_2}}=\frac{\sigma^2_1\sigma^2_2}{\sigma^2_1-\sigma^2_1}ln[\frac{\sigma^2_1}{\sigma^2_1}]
+$$
+
+
+(b) let
+$$
+\begin{align*} \\
+\sigma_1=&k\sigma_2,(k>1) \\
+\sigma^2=&\frac{k^2\sigma^4_2}{k^2\sigma^2_2-\sigma^2_2}\ln[\frac{k^2\sigma^2_2}{\sigma^2_2}] \\
+=&\frac{k^2}{k^2-1}\sigma^2_2\ln(k^2)
+\end{align*} \\
+$$
+
+
+
 
 
 
@@ -184,7 +236,13 @@ $$
 
 **Answer:**
 
-
+First, the axis is divided into six subregions corresponding to the Angle between the orbit and the horizontal direction in six directions. Since the maximum is PI, the range is PI.
+Secondly, the axis ranges in
+$$
+[-\sqrt{2D},\sqrt{2D}]
+$$
+The axis requires subtle partitioning to distinguish trajectories with the same direction but different starting points.
+Finally, the Hough transform can be used as a "filter" to divide all the points in the image into six groups, categorized according to six directions. Then test whether the trajectories meet the requirements of the problem according to different groups.
 
 
 
