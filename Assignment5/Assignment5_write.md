@@ -68,7 +68,7 @@ D\circ B=\cup\{(B)_z\vert(B)_z\subseteq D\}
 \end{array}
 $$
 
-If C is subset of D,the C o B is a subset of D o B
+If $C$ is subset of $D$,the $C \circ B$ is a subset of $D \circ B$
 
 (c)
 $$
