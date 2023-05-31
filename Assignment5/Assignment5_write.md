@@ -142,7 +142,7 @@ import matplotlib.pyplot as plt
 
 original_img = cv2.imread('../images/Figp0917.png', 0)
 
-# create a circle structure element with radius 15
+# create a circle structure element with radius 16
 se = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (32, 32))
 
 A = original_img
