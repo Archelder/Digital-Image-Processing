@@ -79,7 +79,7 @@ $$
 
 And
 $$
-(A\ominus B)\cdot B \supseteq(A\ominus B)
+(A\ominus B)\bullet B \supseteq(A\ominus B)
 $$
 
 $$
