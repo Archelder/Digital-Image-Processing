@@ -150,5 +150,6 @@ plt.imshow(adaptive_salt_and_pepper_img, 'gray'), plt.title(
     f"Adaptive denoised (salt & pepper)\nPSNR={PSNR_adaptive_salt_and_pepper:.2f}dB, "
     f"SSIM={SSIM_adaptive_salt_and_pepper:.2f}"), plt.axis('off')
 plt.suptitle("Adaptive and Standard Mean Filter\nwith $S_{max} = 7$")
+plt.savefig("../images/Adaptive Mean Filtering.jpg")
 plt.tight_layout()
 plt.show()
